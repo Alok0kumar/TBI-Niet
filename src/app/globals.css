@@ -5,16 +5,16 @@
    ======================================== */
 
 @theme inline {
-  /* Colors */
-  --color-primary: #0A0F1E;
-  --color-surface: #0E1628;
-  --color-card: #141E35;
-  --color-accent: #00C2FF;
-  --color-accent-warm: #FF6B2B;
+  /* Colors - Modern Minimalist Dark */
+  --color-primary: #000000;
+  --color-surface: #050505;
+  --color-card: #0A0A0A;
+  --color-accent: #0070F3;
+  --color-accent-warm: #0051B3;
   --color-text-primary: #FFFFFF;
-  --color-text-muted: #8B9CC8;
-  --color-border: rgba(0, 194, 255, 0.15);
-  --color-border-warm: rgba(255, 107, 43, 0.15);
+  --color-text-muted: #A1A1AA;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-warm: rgba(255, 255, 255, 0.05);
 
   /* Fonts */
   --font-display: var(--font-outfit), 'Outfit', sans-serif;
@@ -245,8 +245,8 @@ body {
 
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(0, 194, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 194, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 

@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, Rocket } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/incubation", label: "Incubation" },
   { href: "/programs-events", label: "Programs" },
@@ -16,20 +17,9 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [hoveredPath, setHoveredPath] = useState<string | null>(null);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     setIsMobileOpen(false);
@@ -46,99 +36,112 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-[2px] z-[60]">
-        <motion.div
-          className="h-full"
-          style={{
-            width: `${scrollProgress}%`,
-            background: "linear-gradient(90deg, #00C2FF, #FF6B2B)",
-          }}
-        />
-      </div>
-
       <motion.header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          isScrolled
-            ? "glass-strong shadow-lg shadow-black/20"
-            : "bg-transparent"
-        }`}
+        className="fixed top-2 left-0 w-full z-50 px-4 md:px-8 flex justify-center"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
+        style={{ fontFamily: "'Outfit', sans-serif" }}
       >
-        <nav className="container-custom flex items-center justify-between h-[72px]">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-lg overflow-hidden flex items-center justify-center bg-white">
-              <Image src="/logo.jpeg" alt="NIET TBI Logo" width={36} height={36} className="object-cover w-full h-full" />
-            </div>
-            <div>
-              <span className="font-[family-name:var(--font-display)] font-bold text-lg text-white tracking-tight">
-                NIET TBI
-              </span>
-            </div>
+        <motion.nav 
+          className="flex items-center justify-between bg-[#1C1C1C] rounded-full p-2 w-full shadow-2xl border border-white/5 relative"
+          whileHover={{ boxShadow: "0 20px 40px -10px rgba(255, 255, 255, 0.1)" }}
+          transition={{ duration: 0.3 }}
+        >
+          {/* Left Icon Button */}
+          <Link href="/" className="flex-shrink-0 z-10">
+            <motion.div 
+              className="w-12 h-12 rounded-full bg-white overflow-hidden flex items-center justify-center shadow-sm"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Image src="/logo.jpeg" alt="NIET TBI Logo" width={48} height={48} className="object-cover w-full h-full" />
+            </motion.div>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div 
+            className="hidden lg:flex items-center gap-2 px-4 z-10"
+            onMouseLeave={() => setHoveredPath(null)}
+          >
             {navLinks.map((link) => {
-              const isActive =
-                pathname === link.href || pathname.startsWith(link.href + "/");
+              const isActive = pathname === link.href || pathname.startsWith(link.href + "/");
+              const isHovered = hoveredPath === link.href;
+
               return (
-                <Link
+                <motion.div
                   key={link.href}
-                  href={link.href}
-                  className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-300 flex items-center gap-1.5 ${
-                    isActive
-                      ? "text-accent"
-                      : "text-text-muted hover:text-white"
-                  }`}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative"
                 >
-                  {link.label}
-                  {link.badge && (
-                    <span className="text-[10px] font-bold bg-accent/15 text-accent px-1.5 py-0.5 rounded-full border border-accent/30">
-                      NEW
-                    </span>
-                  )}
-                  {isActive && (
-                    <motion.div
-                      layoutId="navbar-indicator"
-                      className="absolute bottom-0 left-4 right-4 h-[2px] bg-accent rounded-full"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                </Link>
+                  <Link
+                    href={link.href}
+                    onMouseEnter={() => setHoveredPath(link.href)}
+                    className={`relative px-4 py-2.5 text-[15px] font-medium tracking-wide transition-colors duration-300 flex items-center gap-1.5 ${
+                      isActive || isHovered ? "text-white" : "text-[#A0A0A0]"
+                    }`}
+                  >
+                    <span className="relative z-10">{link.label}</span>
+                    {link.badge && (
+                      <span className="relative z-10 text-[10px] font-bold bg-white/20 text-white px-1.5 py-0.5 rounded-full">
+                        NEW
+                      </span>
+                    )}
+
+                    {/* Hover Background Animation */}
+                    {isHovered && (
+                      <motion.div
+                        layoutId="nav-hover-bg"
+                        className="absolute inset-0 bg-white/10 rounded-full"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                      />
+                    )}
+
+                    {/* Active Indicator Animation */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="nav-active-indicator"
+                        className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-[3px] bg-white rounded-full"
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                </motion.div>
               );
             })}
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/apply"
-              className="group relative inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-accent/20"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-accent to-accent-warm" />
-              <span className="absolute inset-0 bg-gradient-to-r from-accent-warm to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <span className="relative">Apply Now</span>
-              <ArrowRight className="relative w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
+          <div className="hidden lg:block flex-shrink-0 z-10">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/apply"
+                className="inline-flex items-center justify-center px-6 py-3.5 bg-white text-black font-semibold rounded-full text-[15px] transition-colors"
+              >
+                Apply Now
+              </Link>
+            </motion.div>
           </div>
 
           {/* Mobile Hamburger */}
-          <button
-            className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5 transition-colors"
+          <motion.button
+            className="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-full z-10 mr-1"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
+            whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.1)" }}
+            whileTap={{ scale: 0.9 }}
             aria-label={isMobileOpen ? "Close menu" : "Open menu"}
           >
             {isMobileOpen ? (
-              <X className="w-5 h-5 text-white" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-5 h-5 text-white" />
+              <Menu className="w-6 h-6 text-white" />
             )}
-          </button>
-        </nav>
+          </motion.button>
+        </motion.nav>
       </motion.header>
 
       {/* Mobile Menu Overlay */}
@@ -150,10 +153,11 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
+            style={{ fontFamily: "'Outfit', sans-serif" }}
           >
-            <div className="absolute inset-0 bg-primary/95 backdrop-blur-xl" />
+            <div className="absolute inset-0 bg-[#0A0A0A]/95 backdrop-blur-xl" />
             <motion.nav
-              className="relative flex flex-col items-center justify-center h-full gap-6"
+              className="relative flex flex-col items-center justify-center h-full gap-8"
               initial="hidden"
               animate="visible"
               exit="hidden"
@@ -162,44 +166,50 @@ export default function Navbar() {
                 visible: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
               }}
             >
-              {navLinks.map((link) => (
-                <motion.div
-                  key={link.href}
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                >
-                  <Link
-                    href={link.href}
-                    className={`text-3xl font-[family-name:var(--font-display)] font-bold transition-colors flex items-center gap-3 ${
-                      pathname === link.href ? "text-accent" : "text-white hover:text-accent"
-                    }`}
-                    onClick={() => setIsMobileOpen(false)}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href || pathname.startsWith(link.href + "/");
+                return (
+                  <motion.div
+                    key={link.href}
+                    variants={{
+                      hidden: { opacity: 0, y: 30 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    {link.label}
-                    {link.badge && (
-                      <span className="text-xs bg-accent/15 text-accent px-2 py-1 rounded-full border border-accent/30">
-                        NEW
-                      </span>
-                    )}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      href={link.href}
+                      className={`text-3xl font-semibold transition-colors flex items-center gap-3 ${
+                        isActive ? "text-white" : "text-gray-400"
+                      }`}
+                      onClick={() => setIsMobileOpen(false)}
+                    >
+                      {link.label}
+                      {link.badge && (
+                        <span className="text-xs bg-white/20 text-white px-2 py-1 rounded-full">
+                          NEW
+                        </span>
+                      )}
+                    </Link>
+                  </motion.div>
+                );
+              })}
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 30 },
                   visible: { opacity: 1, y: 0 },
                 }}
-                className="mt-6"
+                className="mt-4"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <Link
                   href="/apply"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 text-lg font-semibold text-white rounded-xl bg-gradient-to-r from-accent to-accent-warm shadow-lg shadow-accent/20"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-black font-semibold rounded-full text-xl"
                   onClick={() => setIsMobileOpen(false)}
                 >
                   Apply Now
-                  <ArrowRight className="w-5 h-5" />
                 </Link>
               </motion.div>
             </motion.nav>
