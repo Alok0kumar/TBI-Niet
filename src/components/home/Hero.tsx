@@ -79,7 +79,7 @@ const headlineAccent = "Industries.";
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen flex items-start justify-center overflow-hidden"
+      className="relative min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden"
       id="hero"
     >
       {/* Solid Dark Background with subtle grid */}
@@ -96,9 +96,9 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative container-custom text-center z-10 pt-[220px] pb-16">
+      <div className="relative container-custom text-center z-10 py-16">
         {/* Tag */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -108,7 +108,7 @@ export default function Hero() {
           <span className="text-sm text-text-muted font-medium">
             MSME-Approved Incubation Center
           </span>
-        </motion.div>
+        </motion.div> */}
 
         {/* Headline with Mask Reveal */}
         <div className="mb-6 flex flex-col items-center justify-center">
@@ -169,28 +169,24 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
         >
-          <MagneticWrapper>
-            <Link
-              href="/apply"
-              className="group inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-white bg-accent hover:bg-accent-warm rounded-full transition-colors duration-300 shadow-lg shadow-accent/20"
-            >
-              <span>Apply for Incubation</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </MagneticWrapper>
-          <MagneticWrapper>
-            <Link
-              href="/ecell"
-              className="group inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-white rounded-full border border-white/20 hover:bg-white/10 transition-colors duration-300 backdrop-blur-sm"
-            >
-              <span>Explore E-Cell</span>
-              <ArrowRight className="w-5 h-5 text-text-muted group-hover:text-white group-hover:translate-x-1 transition-all" />
-            </Link>
-          </MagneticWrapper>
+          <Link
+            href="/apply"
+            className="group inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-white bg-accent hover:bg-[#0060D0] active:bg-[#004099] rounded-full transition-all duration-200 shadow-lg shadow-accent/20 hover:shadow-accent/30"
+          >
+            <span>Apply for Incubation</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <Link
+            href="/ecell"
+            className="group inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-white rounded-full border border-white/15 hover:border-white/30 hover:bg-white/[0.06] active:bg-white/[0.12] transition-all duration-200"
+          >
+            <span>Explore E-Cell</span>
+            <ArrowRight className="w-5 h-5 text-text-muted group-hover:text-white group-hover:translate-x-1 transition-all" />
+          </Link>
         </motion.div>
 
         {/* Stats Grid with 3D Tilt */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto perspective-1000">
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto perspective-1000">
           <TiltCard delay={1.2}>
             <AnimatedCounter target={10} suffix="+" label="Years" />
           </TiltCard>
@@ -203,7 +199,7 @@ export default function Hero() {
           <TiltCard delay={1.5}>
             <AnimatedCounter target={18000} label="Sq. Ft." />
           </TiltCard>
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom gradient fade to match background */}
