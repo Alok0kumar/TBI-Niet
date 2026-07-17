@@ -39,9 +39,9 @@ export default function EcellJoinPage() {
         </Link>
 
         <motion.div className="text-center mb-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/20 bg-accent/5 mb-4">
-            <Rocket className="w-4 h-4 text-accent" />
-            <span className="text-sm text-accent font-medium">Join E-Cell</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm mb-4">
+            <Rocket className="w-3.5 h-3.5 text-accent animate-pulse" />
+            <span className="text-xs font-mono font-medium tracking-wider text-white uppercase">Join E-Cell</span>
           </div>
           <h1 className="font-[family-name:var(--font-display)] font-bold text-white text-3xl mb-2">
             Be the founder <span className="gradient-text">you imagine.</span>

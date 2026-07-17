@@ -3,6 +3,7 @@ import { Outfit, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import ClientBody from "@/components/layout/ClientBody";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -74,9 +75,11 @@ export default function RootLayout({
       className={`${outfit.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body className="min-h-screen flex flex-col noise-overlay">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ClientBody>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ClientBody>
       </body>
     </html>
   );

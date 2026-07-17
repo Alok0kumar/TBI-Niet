@@ -92,10 +92,10 @@ export default function EcellHome() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/20 bg-accent/5 mb-8"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm mb-8"
           >
-            <Sparkles className="w-4 h-4 text-accent" />
-            <span className="text-sm text-accent font-medium">NIET E-Cell</span>
+            <Sparkles className="w-3.5 h-3.5 text-accent animate-pulse" />
+            <span className="text-xs font-mono font-medium tracking-wider text-white uppercase">NIET E-Cell</span>
           </motion.div>
 
           <motion.h1
@@ -315,12 +315,7 @@ export default function EcellHome() {
 
       {/* Join CTA */}
       <section className="relative py-32 overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(135deg, rgba(0,194,255,0.06) 0%, rgba(255,107,43,0.06) 100%)",
-          }}
-        />
+        <div className="absolute inset-0 bg-[#030303]" />
         <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 

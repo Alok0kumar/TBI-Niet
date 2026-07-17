@@ -171,7 +171,7 @@ export default function Hero() {
         >
           <Link
             href="/apply"
-            className="group inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-white bg-accent hover:bg-[#0060D0] active:bg-[#004099] rounded-full transition-all duration-200 shadow-lg shadow-accent/20 hover:shadow-accent/30"
+            className="group inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-white bg-accent hover:bg-[#801414] active:bg-[#630F0F] rounded-full transition-all duration-200 shadow-lg shadow-accent/20 hover:shadow-accent/30"
           >
             <span>Apply for Incubation</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

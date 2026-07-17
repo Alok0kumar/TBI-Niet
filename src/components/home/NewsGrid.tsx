@@ -13,7 +13,7 @@ const newsItems = [
     title: "NIET TBI Expands Incubation Program to Deep-Tech Startups",
     excerpt:
       "The incubator announces new partnerships with industry leaders to support AI, IoT, and blockchain ventures in the Delhi-NCR region.",
-    gradient: "from-accent to-blue-600",
+    gradient: "from-accent to-accent-warm",
   },
   {
     category: "Announcement",

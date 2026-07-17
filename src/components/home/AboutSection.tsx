@@ -16,7 +16,12 @@ export default function AboutSection() {
             whileInView="visible"
             viewport={viewport}
           >
-            <span className="eyebrow mb-4 inline-block">// ABOUT NIET TBI</span>
+            <div className="flex items-center gap-3 mb-6 justify-start">
+              <span className="w-[3px] h-[18px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
+              <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">
+                ABOUT NIET TBI
+              </span>
+            </div>
             <h2
               className="font-[family-name:var(--font-display)] font-bold text-white leading-[1.1] mb-6"
               style={{ fontSize: "clamp(32px, 4vw, 48px)" }}

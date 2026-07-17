@@ -16,7 +16,7 @@ const tiers = [
     icon: GraduationCap,
     title: "Student Startups",
     desc: "For NIET students with early-stage ideas. Get mentorship, workspace, and micro-grants to build your MVP.",
-    gradient: "from-accent to-blue-600",
+    gradient: "from-accent to-accent-warm",
     features: ["Free workspace", "₹50K micro-grant", "Campus talent pool", "Mentorship"],
   },
   {
@@ -72,7 +72,12 @@ export default function IncubationContent() {
         <div className="aurora-blob aurora-blob--orange absolute bottom-0 right-[-100px] animate-float-delay opacity-15" />
         <div className="relative container-custom text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="eyebrow mb-4 inline-block">// INCUBATION</span>
+            <div className="flex items-center gap-3 mb-6 justify-center">
+              <span className="w-[3px] h-[18px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
+              <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">
+                INCUBATION
+              </span>
+            </div>
             <h1
               className="font-[family-name:var(--font-display)] font-bold text-white leading-[1.05] mb-5"
               style={{ fontSize: "clamp(40px, 5vw, 72px)" }}
@@ -183,7 +188,7 @@ export default function IncubationContent() {
 
       {/* Apply CTA */}
       <section className="py-24 relative">
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,194,255,0.06) 0%, rgba(255,107,43,0.06) 100%)" }} />
+        <div className="absolute inset-0 bg-[#030303]" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
         <motion.div className="relative container-custom text-center" variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}>
           <h2 className="font-[family-name:var(--font-display)] font-bold text-white text-3xl mb-4">Ready to get incubated?</h2>

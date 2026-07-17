@@ -29,7 +29,14 @@ export default function SectionHeading({
       viewport={viewport}
     >
       {eyebrow && (
-        <span className="eyebrow mb-4 inline-block">{eyebrow}</span>
+        <div className={`flex items-center gap-3 mb-6 ${align === "center" ? "justify-center" : "justify-start"}`}>
+          {/* Glowing Vertical Line */}
+          <span className="w-[3px] h-[18px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
+          {/* Text without the old '//' */}
+          <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">
+            {eyebrow.replace(/\/\/\s*/g, "")}
+          </span>
+        </div>
       )}
       <h2
         className={`font-[family-name:var(--font-display)] font-bold leading-[1.1] mb-4 ${

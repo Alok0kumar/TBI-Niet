@@ -7,10 +7,10 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { Calendar, Users, ArrowRight } from "lucide-react";
 
 const events = [
-  { name: "E-Summit 2025", type: "Summit", participants: "1000+", date: "Mar 2025", status: "upcoming", gradient: "from-accent to-blue-600", desc: "Annual flagship entrepreneurship summit with keynotes, competitions, and networking." },
+  { name: "E-Summit 2025", type: "Summit", participants: "1000+", date: "Mar 2025", status: "upcoming", gradient: "from-accent to-accent-warm", desc: "Annual flagship entrepreneurship summit with keynotes, competitions, and networking." },
   { name: "HackNova 3.0", type: "Hackathon", participants: "300+", date: "Feb 2025", status: "upcoming", gradient: "from-accent-warm to-rose-500", desc: "36-hour hackathon for building tech solutions to real-world problems." },
   { name: "Pitch Perfect", type: "Competition", participants: "150+", date: "Jan 2025", status: "upcoming", gradient: "from-purple-500 to-pink-500", desc: "Startup pitch competition with ₹1L prize pool and investor jury." },
-  { name: "E-Summit 2024", type: "Summit", participants: "800+", date: "Mar 2024", status: "past", gradient: "from-accent to-blue-600", desc: "Successful event with 20+ speakers and 50+ startup showcases." },
+  { name: "E-Summit 2024", type: "Summit", participants: "800+", date: "Mar 2024", status: "past", gradient: "from-accent to-accent-warm", desc: "Successful event with 20+ speakers and 50+ startup showcases." },
   { name: "Startup Weekend", type: "Workshop", participants: "200+", date: "Jan 2024", status: "past", gradient: "from-emerald-500 to-teal-500", desc: "54-hour intensive bootcamp from idea to MVP." },
   { name: "National BPC", type: "Competition", participants: "500+", date: "Nov 2023", status: "past", gradient: "from-amber-500 to-orange-500", desc: "National-level business plan competition with 50+ colleges." },
 ];
@@ -25,7 +25,12 @@ export default function ProgramsEventsPage() {
         <div className="absolute inset-0 bg-primary grid-pattern" />
         <div className="relative container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="eyebrow mb-4 inline-block">// PROGRAMS & EVENTS</span>
+            <div className="flex items-center gap-3 mb-6 justify-start">
+              <span className="w-[3px] h-[18px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
+              <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">
+                PROGRAMS & EVENTS
+              </span>
+            </div>
             <h1 className="font-[family-name:var(--font-display)] font-bold text-white leading-[1.1] mb-4" style={{ fontSize: "clamp(40px, 5vw, 72px)" }}>
               What&apos;s <span className="gradient-text">happening.</span>
             </h1>

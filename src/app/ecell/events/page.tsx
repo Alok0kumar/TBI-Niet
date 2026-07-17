@@ -6,7 +6,7 @@ import { Calendar, Users, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 const events = [
-  { name: "E-Summit 2025", type: "Summit", participants: "1000+", date: "Mar 2025", gradient: "from-accent to-blue-600", desc: "Annual flagship event with keynotes, startup expo, and competitions." },
+  { name: "E-Summit 2025", type: "Summit", participants: "1000+", date: "Mar 2025", gradient: "from-accent to-accent-warm", desc: "Annual flagship event with keynotes, startup expo, and competitions." },
   { name: "HackNova 3.0", type: "Hackathon", participants: "300+", date: "Feb 2025", gradient: "from-accent-warm to-rose-500", desc: "36-hour hackathon building solutions for real-world challenges." },
   { name: "Pitch Perfect", type: "Competition", participants: "150+", date: "Jan 2025", gradient: "from-purple-500 to-pink-500", desc: "Pitch your startup to win ₹1L and investor meetings." },
   { name: "Startup Weekend", type: "Workshop", participants: "200+", date: "Dec 2024", gradient: "from-emerald-500 to-teal-500", desc: "54-hour bootcamp from ideation to MVP." },

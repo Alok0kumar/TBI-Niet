@@ -59,7 +59,12 @@ export default function PartnersMarquee() {
         whileInView="visible"
         viewport={viewport}
       >
-        <span className="eyebrow">// TRUSTED BY</span>
+        <div className="flex items-center gap-3 justify-center">
+          <span className="w-[3px] h-[18px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
+          <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">
+            TRUSTED BY
+          </span>
+        </div>
       </motion.div>
 
       <div className="space-y-6">

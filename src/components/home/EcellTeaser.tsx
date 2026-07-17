@@ -8,14 +8,7 @@ import Link from "next/link";
 export default function EcellTeaser() {
   return (
     <section className="relative py-32 overflow-hidden" id="ecell-teaser">
-      {/* Gradient background */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(0,194,255,0.08) 0%, rgba(255,107,43,0.08) 50%, rgba(0,194,255,0.04) 100%)",
-        }}
-      />
+      <div className="absolute inset-0 bg-[#030303]" />
 
       {/* Animated gradient orbs */}
       <div className="absolute top-[-100px] left-[20%] w-[400px] h-[400px] rounded-full bg-accent/10 blur-[120px] animate-float" />
@@ -35,9 +28,9 @@ export default function EcellTeaser() {
         whileInView="visible"
         viewport={viewport}
       >
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/20 bg-accent/5 mb-6">
-          <Sparkles className="w-4 h-4 text-accent" />
-          <span className="text-sm font-medium text-accent">E-Cell</span>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm mb-6">
+          <Sparkles className="w-3.5 h-3.5 text-accent animate-pulse" />
+          <span className="text-xs font-mono font-medium tracking-wider text-white uppercase">E-Cell</span>
         </div>
 
         <h2
