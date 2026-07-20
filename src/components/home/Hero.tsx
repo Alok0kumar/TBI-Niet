@@ -178,7 +178,7 @@ export default function Hero() {
           </Link>
           <Link
             href="/ecell"
-            className="group inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-white rounded-full border border-white/15 hover:border-white/30 hover:bg-white/[0.06] active:bg-white/[0.12] transition-all duration-200"
+            className="group inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-white rounded-full border border-white/15 bg-accent hover:bg-[#801414] active:bg-[#630F0F] transition-all duration-200"
           >
             <span>Explore E-Cell</span>
             <ArrowRight className="w-5 h-5 text-text-muted group-hover:text-white group-hover:translate-x-1 transition-all" />
