@@ -82,18 +82,13 @@ export default function Hero() {
       className="relative min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden"
       id="hero"
     >
-      {/* Solid Dark Background with subtle grid */}
-      <div className="absolute inset-0 bg-primary" />
-      <div className="absolute inset-0 grid-pattern opacity-50" />
-      
-      {/* Subtle Glowing Orb instead of noisy particles */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] rounded-full opacity-[0.03]"
-        style={{
-          background: "radial-gradient(circle, var(--color-accent) 0%, transparent 70%)",
-          filter: "blur(60px)",
-        }}
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/tbi-bg.webp')" }}
       />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/10" />
 
       {/* Content */}
       <div className="relative container-custom text-center z-10 py-16">

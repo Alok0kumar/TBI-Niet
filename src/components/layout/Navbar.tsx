@@ -24,18 +24,14 @@ const programItems = [
     href: "/programs-events",
     icon: Lightbulb,
   },
+
   {
-    label: "Prototype Development",
-    href: "/incubation",
-    icon: Compass,
-  },
-  {
-    label: "Startup Incubation",
+    label: "Incubation",
     href: "/incubation",
     icon: Rocket,
   },
   {
-    label: "Accelerator Program",
+    label: "Programs",
     href: "/programs-events",
     icon: Gauge,
   },
@@ -45,9 +41,9 @@ const programItems = [
     icon: Coins,
   },
   {
-    label: "Mentorship",
+    label: "Offerings",
     href: "/incubation",
-    icon: Users,
+    icon: Compass,
   },
   {
     label: "Infrastructure",
@@ -55,9 +51,22 @@ const programItems = [
     icon: Building2,
   },
 ];
+const discoverItems = [
+  {
+    label: "Who we are",
+    href: "/about",
+    icon: Users,
+  },
+  {
+    label: "Association",
+    href: "/associations",
+    icon: Users,
+  },
+];
 
 export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isDiscoverOpen, setIsDiscoverOpen] = useState(false);
   const [isProgramsOpen, setIsProgramsOpen] = useState(false);
   const [isMobileProgramsOpen, setIsMobileProgramsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -94,10 +103,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-[100] h-[82px] flex items-center transition-all duration-300 ${isScrolled
-          ? "bg-[#FAF9F6]/95 dark:bg-[#FAF9F6]/95 backdrop-blur-xl border-b border-gray-200/50 shadow-sm"
-          : "bg-transparent border-b border-transparent"
-          }`}
+        className={`fixed top-0 left-0 w-full z-[100] h-[82px] flex items-center transition-all duration-300 bg-[#FAF9F6]/95 backdrop-blur-xl border-b border-gray-200/50 shadow-sm`}
         id="main-nav"
         style={{ fontFamily: "'Outfit', sans-serif" }}
       >
@@ -124,13 +130,45 @@ export default function Navbar() {
             >
               Home
             </Link>
-            <Link
-              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/about" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"
-                }`}
-              href="/about"
+            <div
+              className="relative py-2"
+              onMouseEnter={() => setIsDiscoverOpen(true)}
+              onMouseLeave={() => setIsDiscoverOpen(false)}
             >
-              About
-            </Link>
+              <button className="flex items-center gap-1 text-sm font-medium text-neutral-600 hover:text-[#E81010] transition-colors cursor-pointer">
+                Discover
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isDiscoverOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              {/* Dropdown Menu */}
+              <AnimatePresence>
+                {isDiscoverOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 w-64 pt-4 z-50"
+                  >
+                    <div className="bg-white border border-gray-200/55 rounded-none shadow-xl overflow-hidden p-2 backdrop-blur-xl">
+                      {discoverItems.map((item) => {
+                        const Icon = item.icon;
+                        return (
+                          <Link
+                            key={item.label}
+                            className="flex items-center gap-3 px-4 py-3 rounded-none hover:bg-gray-100 text-neutral-700 hover:text-[#E81010] transition-all"
+                            href={item.href}
+                          >
+                            <Icon className="w-5 h-5 text-[#E81010]/80" />
+                            <span className="text-xs font-medium">{item.label}</span>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Dropdown */}
             <div
@@ -139,7 +177,7 @@ export default function Navbar() {
               onMouseLeave={() => setIsProgramsOpen(false)}
             >
               <button className="flex items-center gap-1 text-sm font-medium text-neutral-600 hover:text-[#E81010] transition-colors cursor-pointer">
-                Programs
+                Entreprenuership &  Innovation
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isProgramsOpen ? "rotate-180" : ""}`} />
               </button>
 
@@ -153,13 +191,13 @@ export default function Navbar() {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-1/2 -translate-x-1/2 w-64 pt-4 z-50"
                   >
-                    <div className="bg-white border border-gray-200/55 rounded-xl shadow-xl overflow-hidden p-2 backdrop-blur-xl">
+                    <div className="bg-white border border-gray-200/55 rounded-none shadow-xl overflow-hidden p-2 backdrop-blur-xl">
                       {programItems.map((item) => {
                         const Icon = item.icon;
                         return (
                           <Link
                             key={item.label}
-                            className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 text-neutral-700 hover:text-[#E81010] transition-all"
+                            className="flex items-center gap-3 px-4 py-3 rounded-none hover:bg-gray-100 text-neutral-700 hover:text-[#E81010] transition-all"
                             href={item.href}
                           >
                             <Icon className="w-5 h-5 text-[#E81010]/80" />
@@ -192,7 +230,7 @@ export default function Navbar() {
                 }`}
               href="/programs-events"
             >
-              Events
+              News & Events
             </Link>
             <Link
               className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/contact" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"

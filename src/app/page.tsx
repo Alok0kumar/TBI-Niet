@@ -1,4 +1,5 @@
 import Hero from "@/components/home/Hero";
+import TrustStrip from "@/components/home/TrustStrip";
 import AboutSection from "@/components/home/AboutSection";
 import ImpactStats from "@/components/home/ImpactStats";
 import ServicesGrid from "@/components/home/ServicesGrid";
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <TrustStrip />
       <AboutSection />
       <ImpactStats />
       <ServicesGrid />
