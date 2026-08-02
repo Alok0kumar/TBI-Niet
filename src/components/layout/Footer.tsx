@@ -103,7 +103,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-white p-0.5 border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                <Image src="/logo.jpeg" alt="NIET TBI Logo" width={36} height={36} className="object-cover rounded-lg w-full h-full" />
+                <Image src="/TBI-logo.jpeg" alt="NIET TBI Logo" width={36} height={36} className="object-cover rounded-lg w-full h-full" />
               </div>
               <span className="font-[family-name:var(--font-display)] font-bold text-xl text-white tracking-tight">
                 NIET TBI

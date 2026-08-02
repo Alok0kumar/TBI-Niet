@@ -111,11 +111,11 @@ export default function Navbar() {
 
           {/* Left: Logo & Branding */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-40 h-40 overflow-hidden transition-transform duration-300 group-hover:scale-105" id="logo-container">
+            <div className="relative w-14 h-14 overflow-hidden transition-transform duration-300 group-hover:scale-105" id="logo-container">
               <img
                 alt="NIET TBI Logo"
                 className="w-full h-full object-contain"
-                src="/tbi logo.png"
+                src="/TBI-logo.jpeg"
               />
             </div>
 
