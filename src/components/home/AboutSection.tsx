@@ -9,15 +9,74 @@ export default function AboutSection() {
     <section className="relative section-padding overflow-hidden" id="about">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Text */}
+          {/* Partners Board */}
           <motion.div
             variants={slideInLeft}
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
+            className="w-full max-w-[520px] lg:max-w-none mx-auto"
+          >
+            <div className="bg-[#F6F6F6] rounded-none p-8 md:p-12 lg:p-14 border border-gray-200/60 shadow-[0_15px_40px_rgba(0,0,0,0.08)] flex flex-col gap-10">
+              
+              {/* Section 1: Fueling The Revolution of Startupindia */}
+              <div>
+                <h4 className="text-center font-bold text-gray-900 text-base md:text-lg uppercase tracking-wider mb-6">
+                  Fueling The Revolution of Startupindia
+                </h4>
+                <div className="grid grid-cols-2 gap-5">
+                  {/* Startup India */}
+                  <div className="bg-white rounded-none p-6 flex items-center justify-center shadow-sm border border-gray-100 min-h-[110px] hover:shadow-md transition-all duration-300">
+                    <img src="/startup india.webp" alt="Startup India" className="h-12 object-contain" />
+                  </div>
+
+                  {/* MSME */}
+                  <div className="bg-white rounded-none p-6 flex items-center justify-center shadow-sm border border-gray-100 min-h-[110px] hover:shadow-md transition-all duration-300">
+                    <img src="/msme.webp" alt="MSME" className="h-14 object-contain" />
+                  </div>
+
+                  {/* Wadhwani Foundation */}
+                  <div className="bg-white rounded-none p-6 flex items-center justify-center shadow-sm border border-gray-100 min-h-[110px] hover:shadow-md transition-all duration-300">
+                    <img src="/wadhwni.webp" alt="Wadhwani Foundation" className="h-14 object-contain" />
+                  </div>
+
+                  {/* Seed Spark */}
+                  <div className="bg-white rounded-none p-6 flex items-center justify-center shadow-sm border border-gray-100 min-h-[110px] hover:shadow-md transition-all duration-300">
+                    <img src="/seedpark.webp" alt="Seed Spark" className="h-14 object-contain" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Section 2: Technology/Cloud Partner */}
+              <div>
+                <h4 className="text-center font-bold text-gray-900 text-base md:text-lg uppercase tracking-wider mb-6">
+                  Technology/Cloud Partner
+                </h4>
+                <div className="grid grid-cols-2 gap-5">
+                  {/* Microsoft */}
+                  <div className="bg-white rounded-none p-6 flex items-center justify-center shadow-sm border border-gray-100 min-h-[110px] hover:shadow-md transition-all duration-300">
+                    <img src="/microsoft.webp" alt="Microsoft" className="h-12 object-contain" />
+                  </div>
+
+                  {/* AWS */}
+                  <div className="bg-white rounded-none p-6 flex items-center justify-center shadow-sm border border-gray-150 min-h-[110px] hover:shadow-md transition-all duration-300">
+                    <img src="/aws.webp" alt="AWS" className="h-12 object-contain" />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </motion.div>
+
+          {/* Text */}
+          <motion.div
+            variants={slideInRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
           >
             <div className="flex items-center gap-3 mb-6 justify-start">
-              <span className="w-[3px] h-[18px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
+              <span className="w-[3px] h-[20px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
               <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">
                 ABOUT NIET TBI
               </span>
@@ -60,49 +119,6 @@ export default function AboutSection() {
                 </div>
               ))}
             </div>
-          </motion.div>
-
-          {/* Visual Bento Grid */}
-          <motion.div
-            variants={slideInRight}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-            className="relative grid grid-cols-2 gap-4 h-full min-h-[400px] mt-8 lg:mt-0"
-          >
-            <div className="col-span-2 glass-strong rounded-3xl p-6 lg:p-8 flex items-center gap-6 overflow-hidden relative group border border-white/5 hover:border-accent/30 transition-colors duration-500">
-              <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-accent-warm flex items-center justify-center shrink-0 shadow-[0_0_30px_rgba(0,194,255,0.3)]">
-                <Target className="w-8 h-8 text-white" />
-              </div>
-              <div className="relative z-10">
-                <h3 className="font-[family-name:var(--font-display)] font-bold text-white text-xl lg:text-2xl mb-1">MSME Recognized</h3>
-                <p className="text-text-muted text-sm lg:text-base">Official Ministry of MSME recognized incubation center</p>
-              </div>
-            </div>
-
-            <div className="col-span-1 glass rounded-3xl p-6 lg:p-8 flex flex-col justify-between relative group overflow-hidden border border-white/5 hover:border-accent/30 transition-colors duration-500">
-               <div className="absolute -top-10 -right-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl group-hover:bg-accent/30 transition-colors duration-500" />
-               <Globe className="w-8 h-8 text-accent mb-8 relative z-10" />
-               <div className="relative z-10">
-                 <div className="font-[family-name:var(--font-display)] font-bold text-white text-xl mb-1">Delhi-NCR</div>
-                 <div className="text-text-muted text-sm">Strategic Location</div>
-               </div>
-            </div>
-
-            <div className="col-span-1 glass rounded-3xl p-6 lg:p-8 flex flex-col justify-between relative group overflow-hidden border border-white/5 hover:border-accent-warm/30 transition-colors duration-500">
-               <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-accent-warm/20 rounded-full blur-3xl group-hover:bg-accent-warm/30 transition-colors duration-500" />
-               <Building2 className="w-8 h-8 text-accent-warm mb-8 relative z-10" />
-               <div className="relative z-10">
-                 <div className="font-[family-name:var(--font-display)] font-bold text-white text-xl mb-1">Full-Stack</div>
-                 <div className="text-text-muted text-sm">Support System</div>
-               </div>
-            </div>
-
-            {/* Ambient Glow */}
-            <div className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-20 pointer-events-none -z-10" style={{
-              background: "radial-gradient(circle at center, var(--color-accent) 0%, transparent 60%)",
-            }} />
           </motion.div>
         </div>
       </div>
