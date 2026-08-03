@@ -3,7 +3,6 @@ import AboutSection from "@/components/home/AboutSection";
 import StartupHighlights from "@/components/home/StartupHighlights";
 import ProcessTimeline from "@/components/home/ProcessTimeline";
 import PartnersMarquee from "@/components/home/PartnersMarquee";
-import EcellTeaser from "@/components/home/EcellTeaser";
 import NewsGrid from "@/components/home/NewsGrid";
 import Testimonials from "@/components/home/Testimonials";
 import ApplyCTA from "@/components/home/ApplyCTA";
@@ -16,7 +15,6 @@ export default function Home() {
       <StartupHighlights />
       <ProcessTimeline />
       <PartnersMarquee />
-      <EcellTeaser />
       <NewsGrid />
       <Testimonials />
       <ApplyCTA />

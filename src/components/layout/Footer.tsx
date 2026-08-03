@@ -90,26 +90,24 @@ const ecellLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#030303] overflow-hidden">
-      {/* Sleek top border line with glowing red accent */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+    <footer className="relative bg-zinc-900 border-t-2 border-zinc-700 mt-20 overflow-hidden">
+      {/* Glowing top border separator */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-zinc-600 to-transparent blur-sm" />
       
       {/* Subtle dot pattern */}
       <div className="absolute inset-0 dot-pattern opacity-10 pointer-events-none" />
 
-      <div className="relative container-custom section-padding pb-8">
+      <div className="relative container-custom py-20 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-white p-0.5 border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                <Image src="/TBI-logo.jpeg" alt="NIET TBI Logo" width={36} height={36} className="object-cover rounded-lg w-full h-full" />
+              <div className="h-10 w-auto overflow-hidden flex items-center">
+                <Image src="/72 ppi PNG.png" alt="NIET Technology Business Incubator" width={200} height={40} className="h-full w-auto object-contain" />
               </div>
-              <span className="font-[family-name:var(--font-display)] font-bold text-xl text-white tracking-tight">
-                NIET TBI
-              </span>
             </Link>
-            <p className="text-text-muted text-sm leading-relaxed max-w-sm mb-6">
+            <p className="text-zinc-300 text-sm leading-relaxed max-w-sm mb-6">
               NIET Technology Business Incubator — MSME-approved, Greater
               Noida&apos;s premier launchpad for student startups, regional
               innovators, and deep-tech ventures.
@@ -117,20 +115,20 @@ export default function Footer() {
             <div className="flex flex-col gap-3.5">
               <a
                 href="mailto:incubation@niet.co.in"
-                className="flex items-center gap-3 text-sm text-text-muted hover:text-accent transition-colors w-fit"
+                className="flex items-center gap-3 text-sm text-zinc-300 hover:text-accent transition-colors w-fit"
               >
-                <Mail className="w-4 h-4 text-accent/80" />
+                <Mail className="w-4 h-4 text-accent" />
                 incubation@niet.co.in
               </a>
               <a
                 href="tel:+918448384615"
-                className="flex items-center gap-3 text-sm text-text-muted hover:text-accent transition-colors w-fit"
+                className="flex items-center gap-3 text-sm text-zinc-300 hover:text-accent transition-colors w-fit"
               >
-                <Phone className="w-4 h-4 text-accent/80" />
+                <Phone className="w-4 h-4 text-accent" />
                 +91-8448384615
               </a>
-              <div className="flex items-start gap-3 text-sm text-text-muted">
-                <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-accent/80" />
+              <div className="flex items-start gap-3 text-sm text-zinc-300">
+                <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-accent" />
                 <span>
                   19, Knowledge Park II,
                   <br />
@@ -142,7 +140,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-xs font-mono font-medium tracking-[0.2em] text-white/50 mb-5 uppercase">
+            <h4 className="text-xs font-mono font-medium tracking-[0.2em] text-zinc-400 mb-5 uppercase">
               Quick Links
             </h4>
             <ul className="space-y-3.5">
@@ -150,7 +148,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-text-muted hover:text-accent transition-colors"
+                    className="text-sm text-zinc-300 hover:text-accent transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -161,7 +159,7 @@ export default function Footer() {
 
           {/* Incubation */}
           <div>
-            <h4 className="text-xs font-mono font-medium tracking-[0.2em] text-white/50 mb-5 uppercase">
+            <h4 className="text-xs font-mono font-medium tracking-[0.2em] text-zinc-400 mb-5 uppercase">
               Incubation
             </h4>
             <ul className="space-y-3.5">
@@ -169,7 +167,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-text-muted hover:text-accent transition-colors"
+                    className="text-sm text-zinc-300 hover:text-accent transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -180,7 +178,7 @@ export default function Footer() {
 
           {/* E-Cell */}
           <div>
-            <h4 className="text-xs font-mono font-medium tracking-[0.2em] text-white/50 mb-5 uppercase">
+            <h4 className="text-xs font-mono font-medium tracking-[0.2em] text-zinc-400 mb-5 uppercase">
               E-Cell
             </h4>
             <ul className="space-y-3.5">
@@ -188,7 +186,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-text-muted hover:text-accent transition-colors"
+                    className="text-sm text-zinc-300 hover:text-accent transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -199,14 +197,14 @@ export default function Footer() {
         </div>
 
         {/* Badges + Copyright */}
-        <div className="mt-16 pt-8 border-t border-white/5">
+        <div className="mt-20 pt-10 border-t border-zinc-700">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center gap-1.5 text-xs font-mono text-white/70 bg-white/[0.02] px-3.5 py-1.5 rounded-full border border-white/5">
+              <span className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-300 bg-zinc-800 px-3.5 py-1.5 rounded-full border border-zinc-700">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_8px_var(--color-accent)]" />
                 MSME Approved
               </span>
-              <span className="inline-flex items-center gap-1.5 text-xs font-mono text-white/70 bg-white/[0.02] px-3.5 py-1.5 rounded-full border border-white/5">
+              <span className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-300 bg-zinc-800 px-3.5 py-1.5 rounded-full border border-zinc-700">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_8px_var(--color-accent)]" />
                 Startup India
               </span>
@@ -215,17 +213,17 @@ export default function Footer() {
             {/* Socials & Copyright */}
             <div className="flex flex-col md:flex-row items-center gap-6">
               <div className="flex items-center gap-4">
-                <a href="#" className="text-text-muted hover:text-accent transition-colors" aria-label="LinkedIn">
+                <a href="#" className="text-zinc-400 hover:text-accent transition-colors" aria-label="LinkedIn">
                   <Linkedin className="w-4 h-4" />
                 </a>
-                <a href="#" className="text-text-muted hover:text-accent transition-colors" aria-label="Twitter">
+                <a href="#" className="text-zinc-400 hover:text-accent transition-colors" aria-label="Twitter">
                   <Twitter className="w-4 h-4" />
                 </a>
-                <a href="#" className="text-text-muted hover:text-accent transition-colors" aria-label="Instagram">
+                <a href="#" className="text-zinc-400 hover:text-accent transition-colors" aria-label="Instagram">
                   <Instagram className="w-4 h-4" />
                 </a>
               </div>
-              <p className="text-xs text-text-muted font-mono">
+              <p className="text-xs text-zinc-400 font-mono">
                 © {new Date().getFullYear()} NIET TBI. All rights reserved.
               </p>
             </div>
