@@ -104,7 +104,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 mb-5">
               <div className="h-10 w-auto overflow-hidden flex items-center">
-                <Image src="/72 ppi PNG.png" alt="NIET Technology Business Incubator" width={200} height={40} className="h-full w-auto object-contain" />
+                <Image src="/tbi-new-logo.jpeg" alt="NIET Technology Business Incubator" width={200} height={40} className="h-full w-auto object-contain" />
               </div>
             </Link>
             <p className="text-zinc-300 text-sm leading-relaxed max-w-sm mb-6">
