@@ -87,7 +87,7 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  return (
+  return(
     <footer style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('/niet-campus-aerial.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", fontFamily: "'Inter','Segoe UI',sans-serif", overflow: "hidden", borderTop: "1px solid #f0f0f0" }}>
 
       {/* ── Top content area ── */}
@@ -210,6 +210,7 @@ export default function Footer() {
 
         </div>
       </div>
+    </div>
 
       {/* ── Campus aerial photo banner ── */}
       <div style={{ position: "relative", width: "100%", height: 220, overflow: "hidden" }}>
