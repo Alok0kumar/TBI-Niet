@@ -7,8 +7,6 @@ import Link from "next/link";
 import {
   ArrowRight, GraduationCap, Building2, TrendingUp, Check,
   Users, Globe, Cloud, Scale, Banknote, Compass,
-  Truck, Lightbulb, ShoppingBag, Package,
-  ExternalLink,
 } from "lucide-react";
 
 const tiers = [
@@ -51,15 +49,6 @@ const eligibility = [
   "Open to feedback and mentorship",
   "No sector restrictions — all domains welcome",
   "Student or external founders can apply",
-];
-
-const startups = [
-  { name: "EduTech Innovations", sector: "EdTech", icon: Lightbulb, url: "#", gradient: "from-blue-500 to-cyan-500" },
-  { name: "AgriConnect", sector: "AgriTech", icon: ShoppingBag, url: "#", gradient: "from-emerald-500 to-green-500" },
-  { name: "HealthFirst Diagnostics", sector: "HealthTech", icon: Package, url: "#", gradient: "from-pink-500 to-rose-500" },
-  { name: "SmartManufacture", sector: "Industrial IoT", icon: Truck, url: "#", gradient: "from-violet-500 to-purple-500" },
-  { name: "SkillBridge Academy", sector: "Skill Development", icon: Lightbulb, url: "#", gradient: "from-amber-500 to-orange-500" },
-  { name: "EcoPackaging Solutions", sector: "Sustainability", icon: Package, url: "#", gradient: "from-teal-500 to-cyan-500" },
 ];
 
 export default function IncubationContent() {
@@ -153,33 +142,7 @@ export default function IncubationContent() {
                   <Check className="w-3.5 h-3.5 text-accent" />
                 </div>
                 <span className="text-text-muted text-sm">{item}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Incubated Startups */}
-      <section className="section-padding relative" id="startups">
-        <div className="container-custom">
-          <SectionHeading eyebrow="// PORTFOLIO" title="Incubated startups." />
-          <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}>
-            {startups.map((s) => (
-              <motion.div key={s.name} variants={fadeUp} className="group rounded-2xl bg-card border border-border p-6 card-hover">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${s.gradient} flex items-center justify-center`}>
-                    <s.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-[family-name:var(--font-display)] font-bold text-white">{s.name}</h3>
-                    <p className="text-xs text-text-muted font-[family-name:var(--font-mono)]">{s.sector}</p>
-                  </div>
-                </div>
-                {s.url !== "#" && (
-                  <a href={s.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-accent hover:text-white transition-colors">
-                    Visit <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                )}
               </motion.div>
             ))}
           </motion.div>
@@ -187,16 +150,22 @@ export default function IncubationContent() {
       </section>
 
       {/* Apply CTA */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-[#030303]" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+      <section className="py-24 relative bg-[#050505]">
+        <div className="absolute inset-0 bg-[#050505]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
         <motion.div className="relative container-custom text-center" variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}>
-          <h2 className="font-[family-name:var(--font-display)] font-bold text-white text-3xl mb-4">Ready to get incubated?</h2>
-          <p className="text-text-muted mb-8">Applications are open. It takes less than 5 minutes.</p>
-          <Link href="/apply" className="group relative inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-xl overflow-hidden hover:shadow-xl hover:shadow-accent/20 transition-all">
-            <span className="absolute inset-0 bg-gradient-to-r from-accent to-accent-warm" />
-            <span className="relative">Apply for Incubation</span>
-            <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <h2 className="font-[family-name:var(--font-display)] font-bold text-white text-3xl md:text-4xl mb-4">
+            Ready to get incubated?
+          </h2>
+          <p className="text-white/90 text-base md:text-lg font-medium mb-8 max-w-xl mx-auto">
+            Applications are open. It takes less than 5 minutes.
+          </p>
+          <Link
+            href="/apply"
+            className="inline-flex items-center gap-2.5 px-9 py-4 text-base font-bold text-white rounded-full bg-red-600 hover:bg-red-700 shadow-lg shadow-red-600/30 hover:shadow-red-600/50 hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer group"
+          >
+            <span>Apply for Incubation</span>
+            <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
       </section>
