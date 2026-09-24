@@ -212,9 +212,9 @@ export default function Navbar() {
             </div>
 
             <Link
-              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname.includes("#startups") ? "text-[#FA350F] active" : "text-neutral-600 hover:text-[#E81010]"
+              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/portfolio" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"
                 }`}
-              href="/incubation#startups"
+              href="/portfolio"
             >
               Portfolio
             </Link>
@@ -261,14 +261,14 @@ export default function Navbar() {
 
             {/* Mobile Hamburger */}
             <button
-              className="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/5 text-gray-700 dark:text-white"
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/5 text-[#C41E3A]"
               onClick={() => setIsMobileOpen(!isMobileOpen)}
               aria-label={isMobileOpen ? "Close menu" : "Open menu"}
             >
               {isMobileOpen ? (
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5 text-[#C41E3A]" />
               ) : (
-                <Menu className="w-5 h-5" />
+                <Menu className="w-5 h-5 text-[#C41E3A]" />
               )}
             </button>
           </div>
@@ -345,8 +345,8 @@ export default function Navbar() {
                 </div>
 
                 <Link
-                  href="/incubation#startups"
-                  className={`text-xl font-semibold py-2 ${pathname.includes("#startups") ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  href="/portfolio"
+                  className={`text-xl font-semibold py-2 ${pathname === "/portfolio" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >

@@ -77,7 +77,7 @@ const quickLinks = [
 const incubationLinks = [
   { href: "/apply", label: "Apply" },
   { href: "/incubation", label: "Incubation Model" },
-  { href: "/incubation#startups", label: "Startups" },
+  { href: "/portfolio", label: "Portfolio Startups" },
   { href: "/mentors", label: "Mentors" },
 ];
 
@@ -98,7 +98,7 @@ export default function Footer() {
       {/* Subtle dot pattern */}
       <div className="absolute inset-0 dot-pattern opacity-10 pointer-events-none" />
 
-      <div className="relative container-custom py-20 pb-12">
+      <div className="relative container-custom pt-24 md:pt-32 lg:pt-40 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
