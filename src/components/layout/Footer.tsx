@@ -56,7 +56,7 @@ const exploreLinks = [
 const incubationLinks = [
   { href: "/apply", label: "Apply for Incubation" },
   { href: "/incubation", label: "Incubation Model" },
-  { href: "/incubation#startups", label: "Startups" },
+  { href: "/portfolio", label: "Portfolio Startups" },
   { href: "/mentors", label: "Mentors" },
   { href: "/resources", label: "Resources" },
   { href: "/faqs", label: "FAQs" },
@@ -94,38 +94,45 @@ export default function Footer() {
       <div style={{ paddingTop: 60 }}>
         <div className="ftr-section-pad">
 
-          {/* Row 1: brand + 3 nav columns */}
-          <div className="ftr-top-grid">
-            {/* Brand */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              <Link href="/" style={{ display: "inline-block", marginBottom: 4 }}>
-                <Image
-                  src="/tbi-new-logo.jpeg"
-                  alt="NIET Technology Business Incubator"
-                  width={220}
-                  height={56}
-                  style={{ height: 52, width: "auto", objectFit: "contain" }}
-                />
-              </Link>
-              <p style={{ fontSize: 13, color: "#555", lineHeight: 1.75, maxWidth: 310, margin: 0 }}>
-                Empowering student entrepreneurs, innovators and early-stage startups with infrastructure,
-                mentorship, funding and industry connections to build scalable ventures and create lasting impact.
-              </p>
-              <div style={{ display: "flex", flexDirection: "column", gap: 11, marginTop: 4 }}>
-                <a href="mailto:incubation@niet.co.in" className="ftr-contact-item">
-                  <Mail size={15} style={{ color: "#C41E3A", flexShrink: 0 }} />
-                  incubation@niet.co.in
-                </a>
-                <a href="tel:+918448384615" className="ftr-contact-item">
-                  <Phone size={15} style={{ color: "#C41E3A", flexShrink: 0 }} />
-                  +91 84483 84615
-                </a>
-                <div className="ftr-contact-item" style={{ alignItems: "flex-start", cursor: "default" }}>
-                  <MapPin size={15} style={{ color: "#C41E3A", flexShrink: 0, marginTop: 2 }} />
-                  <span>19, Knowledge Park II,<br />Greater Noida, Uttar Pradesh 201306</span>
-                </div>
+      <div className="relative container-custom pt-24 md:pt-32 lg:pt-40 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <Link href="/" className="inline-flex items-center gap-3 mb-5">
+              <div className="h-10 w-auto overflow-hidden flex items-center">
+                <Image src="/tbi-new-logo.jpeg" alt="NIET Technology Business Incubator" width={200} height={40} className="h-full w-auto object-contain" />
+              </div>
+            </Link>
+            <p className="text-zinc-300 text-sm leading-relaxed max-w-sm mb-6">
+              NIET Technology Business Incubator — MSME-approved, Greater
+              Noida&apos;s premier launchpad for student startups, regional
+              innovators, and deep-tech ventures.
+            </p>
+            <div className="flex flex-col gap-3.5">
+              <a
+                href="mailto:incubation@niet.co.in"
+                className="flex items-center gap-3 text-sm text-zinc-300 hover:text-accent transition-colors w-fit"
+              >
+                <Mail className="w-4 h-4 text-accent" />
+                incubation@niet.co.in
+              </a>
+              <a
+                href="tel:+918448384615"
+                className="flex items-center gap-3 text-sm text-zinc-300 hover:text-accent transition-colors w-fit"
+              >
+                <Phone className="w-4 h-4 text-accent" />
+                +91-8448384615
+              </a>
+              <div className="flex items-start gap-3 text-sm text-zinc-300">
+                <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-accent" />
+                <span>
+                  19, Knowledge Park II,
+                  <br />
+                  Greater Noida, UP
+                </span>
               </div>
             </div>
+          </div>
 
             {/* Explore */}
             <div>
