@@ -6,7 +6,8 @@ import { Calendar, ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Link from "next/link";
 
-const newsItems = [
+// Curated highlights for the home page — pulled from actual event data
+const newsHighlights = [
   {
     category: "Achievement",
     date: "Jan 2025",
@@ -50,7 +51,7 @@ export default function NewsGrid() {
           whileInView="visible"
           viewport={viewport}
         >
-          {newsItems.map((item) => (
+          {newsHighlights.map((item) => (
             <motion.article
               key={item.title}
               variants={fadeUp}
@@ -96,7 +97,7 @@ export default function NewsGrid() {
           ))}
         </motion.div>
 
-        {/* View all link */}
+        {/* View all link — now points to the unified page */}
         <motion.div
           className="mt-12 text-center"
           variants={fadeUp}
@@ -105,7 +106,7 @@ export default function NewsGrid() {
           viewport={viewport}
         >
           <Link
-            href="/news"
+            href="/programs-events"
             className="inline-flex items-center gap-2 text-sm font-medium text-text-muted hover:text-accent transition-colors"
           >
             View all news & updates
