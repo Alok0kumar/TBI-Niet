@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Mail, Phone, MapPin, ArrowRight, ArrowUp } from "lucide-react";
 
-// ── Custom SVG icons ──────────────────────────────────────────────────────────
+// ── Custom SVG Icons ──────────────────────────────────────────────────────────
 
 function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -33,33 +33,29 @@ function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function YoutubeIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" />
-    </svg>
-  );
-}
 
-// ── Link data ──────────────────────────────────────────────────────────────────
+
+
+
+// ── Link Data ──────────────────────────────────────────────────────────────────
 
 const exploreLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About TBI" },
-  { href: "/programs-events", label: "Programs" },
+  { href: "/programs", label: "Programs" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/mentors", label: "Mentors" },
-  { href: "/news", label: "News & Events" },
+  { href: "/programs-events", label: "News & Events" },
   { href: "/contact", label: "Contact" },
 ];
 
 const incubationLinks = [
   { href: "/apply", label: "Apply for Incubation" },
   { href: "/incubation", label: "Incubation Model" },
-  { href: "/portfolio", label: "Portfolio Startups" },
+  { href: "/portfolio", label: "Startups" },
   { href: "/mentors", label: "Mentors" },
-  { href: "/resources", label: "Resources" },
-  { href: "/faqs", label: "FAQs" },
+  { href: "/offerings", label: "Resources" },
+  { href: "/contact", label: "FAQs" },
 ];
 
 const aboutLinks = [
@@ -68,312 +64,297 @@ const aboutLinks = [
   { href: "/about#team", label: "Team" },
   { href: "/about#campus-innovation", label: "Campus Innovation" },
   { href: "/about#collaborations", label: "Collaborations" },
-  { href: "/careers", label: "Careers" },
+  { href: "/contact", label: "Careers" },
 ];
 
 const socialLinks = [
-  { href: "https://linkedin.com", label: "LinkedIn", Icon: LinkedinIcon },
+  { href: "https://www.linkedin.com/company/niet-tbi/", label: "LinkedIn", Icon: LinkedinIcon },
   { href: "https://x.com", label: "X (Twitter)", Icon: XIcon },
-  { href: "https://instagram.com", label: "Instagram", Icon: InstagramIcon },
-  { href: "https://youtube.com", label: "YouTube", Icon: YoutubeIcon },
+  { href: "https://www.instagram.com/niet.tbi?obrf=MTJ3ancyNTlwNTNqdA==", label: "Instagram", Icon: InstagramIcon },
+ 
 ];
 
-// ── Component ──────────────────────────────────────────────────────────────────
+// ── Main Component ─────────────────────────────────────────────────────────────
 
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  return(
-    <footer style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('/niet-campus-aerial.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", fontFamily: "'Inter','Segoe UI',sans-serif", overflow: "hidden", borderTop: "1px solid #f0f0f0" }}>
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setSubscribed(true);
+    setTimeout(() => {
+      setSubscribed(false);
+      setEmail("");
+    }, 3000);
+  };
 
-      {/* ── Top content area ── */}
-      <div style={{ paddingTop: 60 }}>
-        <div className="ftr-section-pad">
+  return (
+    <footer className="relative bg-white text-neutral-800 font-sans border-t border-gray-100 overflow-hidden">
+      {/* Soft warm ambient glow at top right */}
+      <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-gradient-to-bl from-red-100/40 via-red-50/15 to-transparent rounded-bl-full pointer-events-none -z-0" />
 
-      <div className="relative container-custom pt-24 md:pt-32 lg:pt-40 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-3 mb-5">
-              <div className="h-10 w-auto overflow-hidden flex items-center">
-                <Image src="/tbi-new-logo.jpeg" alt="NIET Technology Business Incubator" width={200} height={40} className="h-full w-auto object-contain" />
+      {/* ── Main Content Container ── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-14 md:pt-16 pb-4 sm:pb-5">
+
+        
+
+        {/* ── Top Grid: Brand & Links ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 pb-10">
+
+          {/* Left Column (Brand & Mission) */}
+          <div className="lg:col-span-5 flex flex-col justify-start">
+            {/* Logo */}
+            <Link href="/" className="inline-block mb-6 group">
+              <div className="h-14 w-auto flex items-center">
+                <img
+                  src="/72 ppi PNG.png"
+                  alt="NIET Technology Business Incubator"
+                  className="h-full w-auto object-contain transition-transform group-hover:scale-102"
+                />
               </div>
             </Link>
-            <p className="text-zinc-300 text-sm leading-relaxed max-w-sm mb-6">
-              NIET Technology Business Incubator — MSME-approved, Greater
-              Noida&apos;s premier launchpad for student startups, regional
-              innovators, and deep-tech ventures.
+
+            {/* Bold Headline */}
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight leading-[1.15] mb-4">
+              Where Vision<span className="text-[#C41E3A]"> becomes</span><br /> <span className="text-[#C41E3A]">Ventures.</span>
+            </h2>
+
+            {/* Description */}
+            <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed max-w-md">
+              Empowering student entrepreneurs, innovators and early-stage startups with infrastructure,
+              mentorship, funding and industry connections to build scalable ventures and create lasting impact.
             </p>
-            <div className="flex flex-col gap-3.5">
-              <a
-                href="mailto:incubation@niet.co.in"
-                className="flex items-center gap-3 text-sm text-zinc-300 hover:text-accent transition-colors w-fit"
-              >
-                <Mail className="w-4 h-4 text-accent" />
-                incubation@niet.co.in
-              </a>
-              <a
-                href="tel:+918448384615"
-                className="flex items-center gap-3 text-sm text-zinc-300 hover:text-accent transition-colors w-fit"
-              >
-                <Phone className="w-4 h-4 text-accent" />
-                +91-8448384615
-              </a>
-              <div className="flex items-start gap-3 text-sm text-zinc-300">
-                <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-accent" />
-                <span>
-                  19, Knowledge Park II,
-                  <br />
-                  Greater Noida, UP
-                </span>
-              </div>
-            </div>
           </div>
 
-            {/* Explore */}
+          {/* Right Navigation Columns (EXPLORE, INCUBATION, ABOUT) */}
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 pt-2">
+
+            {/* Explore Column */}
             <div>
-              <h4 className="ftr-col-heading">EXPLORE</h4>
-              <ul className="ftr-link-list">
+              <h3 className="text-[11px] font-bold tracking-[0.18em] text-neutral-900 uppercase">
+                EXPLORE
+              </h3>
+              <div className="w-6 h-[2px] bg-[#C41E3A] mt-1 mb-4" />
+              <ul className="space-y-2.5">
                 {exploreLinks.map((l) => (
-                  <li key={l.href}><Link href={l.href} className="ftr-link">{l.label}</Link></li>
+                  <li key={l.label}>
+                    <Link
+                      href={l.href}
+                      className="text-xs sm:text-[13.5px] text-neutral-600 hover:text-[#C41E3A] transition-colors block py-0.5 font-normal"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </div>
 
-            {/* Incubation */}
+            {/* Incubation Column */}
             <div>
-              <h4 className="ftr-col-heading">INCUBATION</h4>
-              <ul className="ftr-link-list">
+              <h3 className="text-[11px] font-bold tracking-[0.18em] text-neutral-900 uppercase">
+                INCUBATION
+              </h3>
+              <div className="w-6 h-[2px] bg-[#C41E3A] mt-1 mb-4" />
+              <ul className="space-y-2.5">
                 {incubationLinks.map((l) => (
-                  <li key={l.href}><Link href={l.href} className="ftr-link">{l.label}</Link></li>
+                  <li key={l.label}>
+                    <Link
+                      href={l.href}
+                      className="text-xs sm:text-[13.5px] text-neutral-600 hover:text-[#C41E3A] transition-colors block py-0.5 font-normal"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </div>
 
-            {/* About */}
-            <div>
-              <h4 className="ftr-col-heading">ABOUT</h4>
-              <ul className="ftr-link-list">
+            {/* About Column */}
+            <div className="col-span-2 sm:col-span-1">
+              <h3 className="text-[11px] font-bold tracking-[0.18em] text-neutral-900 uppercase">
+                ABOUT
+              </h3>
+              <div className="w-6 h-[2px] bg-[#C41E3A] mt-1 mb-4" />
+              <ul className="space-y-2.5">
                 {aboutLinks.map((l) => (
-                  <li key={l.href}><Link href={l.href} className="ftr-link">{l.label}</Link></li>
+                  <li key={l.label}>
+                    <Link
+                      href={l.href}
+                      className="text-xs sm:text-[13.5px] text-neutral-600 hover:text-[#C41E3A] transition-colors block py-0.5 font-normal"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
                 ))}
               </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* ── Middle Row: Contact Info + Follow Us + Stay Updated (Same Horizontal Level) ── */}
+        <div className="border-t border-gray-100 pt-8 pb-2 sm:pb-3 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-8 items-start">
+
+          {/* 1. Contact Information */}
+          <div className="md:col-span-5 lg:col-span-4 space-y-3.5">
+            <a
+              href="mailto:incubation@niet.co.in"
+              className="flex items-center gap-3.5 text-xs sm:text-sm text-neutral-700 hover:text-[#C41E3A] transition-colors group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center text-[#C41E3A] shrink-0 group-hover:bg-[#C41E3A] group-hover:text-white transition-all">
+                <Mail className="w-4 h-4" />
+              </div>
+              <span className="font-medium">incubation@niet.co.in</span>
+            </a>
+
+            <a
+              href="tel:+918448384615"
+              className="flex items-center gap-3.5 text-xs sm:text-sm text-neutral-700 hover:text-[#C41E3A] transition-colors group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center text-[#C41E3A] shrink-0 group-hover:bg-[#C41E3A] group-hover:text-white transition-all">
+                <Phone className="w-4 h-4" />
+              </div>
+              <span className="font-medium">+91 84483 84615</span>
+            </a>
+
+            <div className="flex items-start gap-3.5 text-xs sm:text-sm text-neutral-700">
+              <div className="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center text-[#C41E3A] shrink-0 mt-0.5">
+                <MapPin className="w-4 h-4" />
+              </div>
+              <span className="font-medium leading-relaxed">
+                19, Knowledge Park II,<br />
+                Greater Noida, Uttar Pradesh 201306
+              </span>
             </div>
           </div>
 
-          {/* Divider */}
-          <div style={{ borderTop: "1px solid #eee", margin: "8px 0" }} />
-
-          {/* Row 2: social + newsletter */}
-          <div className="ftr-bottom-grid">
-            {/* Follow Us */}
-            <div>
-              <h4 className="ftr-col-heading">FOLLOW US</h4>
-              <div style={{ display: "flex", gap: 10, marginTop: 4, flexWrap: "wrap" }}>
-                {socialLinks.map(({ href, label, Icon }) => (
-                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="ftr-social-btn">
-                    <Icon width={17} height={17} />
-                  </a>
-                ))}
-              </div>
+          {/* 2. Follow Us */}
+          <div className="md:col-span-3 lg:col-span-3">
+            <h3 className="text-[11px] font-bold tracking-[0.18em] text-neutral-900 uppercase">
+              FOLLOW US
+            </h3>
+            <div className="w-7 h-[2px] bg-[#C41E3A] mt-1 mb-4" />
+            <div className="flex items-center gap-3">
+              {socialLinks.map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-10 h-10 rounded-full bg-[#fdf8f8] hover:bg-[#C41E3A] text-neutral-700 hover:text-white border border-gray-200/80 hover:border-[#C41E3A] flex items-center justify-center transition-all duration-200 shadow-sm hover:scale-105"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
+          </div>
 
-            {/* Stay Updated */}
-            <div>
-              <h4 className="ftr-col-heading">STAY UPDATED</h4>
-              <form
-                style={{ display: "flex", border: "1.5px solid #ddd", borderRadius: 6, overflow: "hidden", maxWidth: 420 }}
-                onSubmit={(e) => { e.preventDefault(); setEmail(""); }}
-                className="ftr-newsletter-form"
-              >
+          {/* 3. Stay Updated (with vertical border divider on desktop) */}
+          <div className="md:col-span-4 lg:col-span-5 md:border-l md:border-gray-200/90 md:pl-8 lg:pl-10">
+            <h3 className="text-[11px] font-bold tracking-[0.18em] text-neutral-900 uppercase">
+              STAY UPDATED
+            </h3>
+            <div className="w-7 h-[2px] bg-[#C41E3A] mt-1 mb-4" />
+
+            <form onSubmit={handleSubscribe} className="max-w-md">
+              <div className="flex items-center rounded-full border border-gray-200/90 bg-white p-1 pl-4 md:pl-5 shadow-sm focus-within:border-[#C41E3A] focus-within:ring-2 focus-within:ring-[#C41E3A]/15 transition-all">
                 <input
                   type="email"
+                  required
                   placeholder="Your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  required
-                  style={{ flex: 1, border: "none", outline: "none", padding: "10px 14px", fontSize: 13.5, color: "#333", background: "#fff" }}
+                  className="w-full text-xs sm:text-sm text-neutral-800 placeholder:text-neutral-400 outline-none bg-transparent"
                 />
-                <button type="submit" className="ftr-newsletter-btn" aria-label="Subscribe">
-                  <ArrowRight size={18} />
+                <button
+                  type="submit"
+                  aria-label="Subscribe to updates"
+                  className="w-8 h-8 rounded-full bg-[#C41E3A] hover:bg-[#a81630] text-white flex items-center justify-center shrink-0 transition-transform active:scale-95 shadow-sm"
+                >
+                  <ArrowRight className="w-4 h-4" />
                 </button>
-              </form>
-              <p style={{ fontSize: 12, color: "#C41E3A", marginTop: 8 }}>
-                Get the latest updates on programs, events and opportunities.
+              </div>
+
+              <p className="text-[11px] sm:text-xs text-neutral-500 mt-2.5 font-normal">
+                {subscribed
+                  ? "Thank you! You've been subscribed to updates."
+                  : "Get the latest updates on programs, events and opportunities."}
               </p>
-            </div>
+            </form>
           </div>
 
         </div>
-      </div>
-    </div>
 
-      {/* ── Campus aerial photo banner ── */}
-      <div style={{ position: "relative", width: "100%", height: 220, overflow: "hidden" }}>
-        <Image
-          src="/niet-campus-aerial.jpg"
-          alt="NIET Campus, Greater Noida — aerial view"
-          fill
-          style={{ objectFit: "cover", objectPosition: "center 30%" }}
-        />
-        {/* Top fade */}
-        <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 80, background: "linear-gradient(to bottom, #fff 0%, transparent 100%)", pointerEvents: "none" }} />
-        {/* Bottom fade */}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 80, background: "linear-gradient(to top, rgba(255,255,255,0.85) 0%, transparent 100%)", pointerEvents: "none" }} />
       </div>
 
-      {/* ── Partner logos strip ── */}
-      <div style={{ borderTop: "1px solid #eee" }} className="ftr-section-pad" >
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 40, flexWrap: "wrap", padding: "22px 0" }}>
-          <Image src="/msme.webp" alt="Ministry of MSME, Government of India" width={110} height={44} style={{ objectFit: "contain", height: 42, width: "auto", opacity: 0.85 }} />
-          <Image src="/startup india.webp" alt="#startupindia" width={130} height={44} style={{ objectFit: "contain", height: 36, width: "auto", opacity: 0.85 }} />
-          <div style={{ display: "flex", alignItems: "center", gap: 8, opacity: 0.8 }}>
-            <span style={{ fontSize: 22, color: "#555" }}>⚙</span>
-            <div style={{ fontSize: 11, fontWeight: 600, color: "#333", letterSpacing: "0.04em", lineHeight: 1.4 }}>INNOVATION CELL<br /><span style={{ fontWeight: 400, color: "#777", fontSize: 10 }}>Government of India</span></div>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 1, opacity: 0.85 }}>
-            <span style={{ fontSize: 22, fontWeight: 800, color: "#1a3a6b", letterSpacing: "-0.02em" }}>G20</span>
-            <span style={{ fontSize: 10, color: "#666", lineHeight: 1.2 }}>भारत 2023 INDIA</span>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 0, opacity: 0.85 }}>
-            <span style={{ fontSize: 11, fontWeight: 700, color: "#e5243b", letterSpacing: "0.06em", lineHeight: 1.3 }}>SUSTAINABLE<br />DEVELOPMENT<br />GOALS</span>
-          </div>
+      {/* ── Campus Aerial Banner Section (`nietbg.jpeg`) with Green Grass & Soft White Overlay ── */}
+      <div className="relative w-full overflow-hidden">
+        <div className="relative w-full h-[220px] sm:h-[280px] md:h-[340px]">
+          <Image
+            src="/nietbg.jpeg"
+            alt="NIET Campus with Green Grounds, Greater Noida"
+            fill
+            className="object-cover object-[center_35%]"
+            priority
+          />
+
+          {/* Light white overlay across the entire background image */}
+          <div className="absolute inset-0 bg-white/15 pointer-events-none" />
+
+          {/* Smooth fade from top white section into the image */}
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white via-white/50 to-transparent pointer-events-none" />
+
+          {/* Soft fade at the bottom connecting to the copyright bar */}
+          <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white/40 to-transparent pointer-events-none" />
         </div>
       </div>
 
-      {/* ── Red accent divider ── */}
-      <div style={{ height: 3, background: "linear-gradient(90deg,#C41E3A 0%,#DC143C 100%)" }} />
+      {/* ── Bottom Copyright Bar ── */}
+      <div className="relative z-10 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
 
-      {/* ── Copyright bar ── */}
-      <div className="ftr-copyright-bar ftr-section-pad">
-        <p style={{ fontSize: 12.5, color: "#666", margin: 0 }}>
-          © {new Date().getFullYear()} NIET Technology Business Incubator. All rights reserved.
-        </p>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-          <Link href="/privacy" className="ftr-legal-link">Privacy Policy</Link>
-          <span style={{ color: "#ccc" }}>|</span>
-          <Link href="/terms" className="ftr-legal-link">Terms &amp; Conditions</Link>
-          <span style={{ color: "#ccc" }}>|</span>
-          <Link href="/sitemap" className="ftr-legal-link">Sitemap</Link>
+          {/* Copyright notice */}
+          <p className="text-center sm:text-left text-[12px] text-neutral-500 m-0">
+            © 2026 NIET Technology Business Incubator. All rights reserved.
+          </p>
+
+          {/* Policy Links */}
+          <div className="flex items-center gap-3 text-[12px]">
+            <Link href="/privacy" className="hover:text-[#C41E3A] transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-neutral-300">|</span>
+            <Link href="/terms" className="hover:text-[#C41E3A] transition-colors">
+              Terms &amp; Conditions
+            </Link>
+            <span className="text-neutral-300">|</span>
+            <Link href="/sitemap" className="hover:text-[#C41E3A] transition-colors">
+              Sitemap
+            </Link>
+          </div>
+
+          {/* Back to top button */}
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-2 text-[12px] text-neutral-600 hover:text-[#C41E3A] group transition-colors cursor-pointer"
+            aria-label="Back to top"
+          >
+            <span className="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-neutral-600 group-hover:border-[#C41E3A] group-hover:text-[#C41E3A] group-hover:bg-red-50/50 transition-all">
+              <ArrowUp className="w-3.5 h-3.5" />
+            </span>
+            <span className="font-medium">Back to top</span>
+          </button>
+
         </div>
-        <button onClick={scrollToTop} className="ftr-back-top" aria-label="Back to top">
-          <ArrowUp size={13} />
-          Back to top
-        </button>
       </div>
-
-      {/* ── Scoped CSS ── */}
-      <style>{`
-        /* Shared responsive horizontal padding */
-        .ftr-section-pad {
-          padding-left: 40px;
-          padding-right: 40px;
-        }
-        @media (max-width: 1024px) {
-          .ftr-section-pad { padding-left: 24px; padding-right: 24px; }
-        }
-        @media (max-width: 600px) {
-          .ftr-section-pad { padding-left: 16px; padding-right: 16px; }
-        }
-
-        /* Top grid */
-        .ftr-top-grid {
-          display: grid;
-          grid-template-columns: 2fr 1fr 1fr 1fr;
-          gap: 48px;
-          padding-bottom: 36px;
-        }
-        @media (max-width: 1024px) { .ftr-top-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
-        @media (max-width: 600px)  { .ftr-top-grid { grid-template-columns: 1fr; gap: 28px; } }
-
-        /* Bottom grid */
-        .ftr-bottom-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 48px;
-          padding: 32px 0 52px;
-        }
-        @media (max-width: 600px) { .ftr-bottom-grid { grid-template-columns: 1fr; gap: 28px; } }
-
-        /* Heading */
-        .ftr-col-heading {
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.17em;
-          color: #111;
-          margin: 0 0 14px;
-          padding: 0;
-        }
-
-        /* Nav links */
-        .ftr-link-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
-        .ftr-link { font-size: 13.5px; color: #555; text-decoration: none; transition: color 0.2s; }
-        .ftr-link:hover { color: #C41E3A; }
-
-        /* Contact items */
-        .ftr-contact-item {
-          display: flex;
-          align-items: center;
-          gap: 9px;
-          font-size: 13.5px;
-          color: #333;
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-        .ftr-contact-item:hover { color: #C41E3A; }
-
-        /* Social buttons */
-        .ftr-social-btn {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 40px; height: 40px;
-          border-radius: 50%;
-          background: #f5f5f5;
-          color: #C41E3A;
-          border: 1.5px solid #e8e8e8;
-          transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.18s;
-          text-decoration: none;
-        }
-        .ftr-social-btn:hover {
-          background: #C41E3A; color: #fff; border-color: #C41E3A; transform: translateY(-2px);
-        }
-
-        /* Newsletter */
-        .ftr-newsletter-form:focus-within { border-color: #C41E3A !important; }
-        .ftr-newsletter-btn {
-          background: #C41E3A; color: #fff; border: none; padding: 0 16px;
-          cursor: pointer; display: flex; align-items: center; justify-content: center;
-          transition: background 0.2s;
-        }
-        .ftr-newsletter-btn:hover { background: #a01830; }
-
-        /* Copyright bar */
-        .ftr-copyright-bar {
-          background: transparent;
-          padding-top: 18px;
-          padding-bottom: 18px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex-wrap: wrap;
-          gap: 12px;
-          border-top: 1px solid #f0f0f0;
-        }
-        .ftr-legal-link { font-size: 12.5px; color: #555; text-decoration: none; transition: color 0.2s; }
-        .ftr-legal-link:hover { color: #C41E3A; }
-        .ftr-back-top {
-          display: inline-flex; align-items: center; gap: 6px;
-          font-size: 12.5px; color: #555; background: none;
-          border: 1.5px solid #ddd; border-radius: 50px; padding: 6px 14px;
-          cursor: pointer; transition: color 0.2s, border-color 0.2s, background 0.2s;
-        }
-        .ftr-back-top:hover { color: #C41E3A; border-color: #C41E3A; background: #fff5f6; }
-      `}</style>
     </footer>
   );
 }

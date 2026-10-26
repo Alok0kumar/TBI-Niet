@@ -39,13 +39,13 @@ export default function Hero() {
 
       <div className="w-full border-b border-gray-100">
         <div className="w-full">
-          <div className="grid min-h-[580px] w-full lg:grid-cols-2">
+          <div className="grid min-h-[580px] w-full lg:grid-cols-5">
 
             {/* =====================================================
-                LEFT CONTENT
+                LEFT CONTENT (40% width on desktop)
             ===================================================== */}
 
-            <div className="flex flex-col justify-center px-6 py-12 sm:px-10 md:px-12 lg:px-16 xl:px-20">
+            <div className="flex flex-col justify-center px-6 py-12 sm:px-10 md:px-12 lg:px-10 xl:px-14 lg:col-span-2">
 
               {/* Eyebrow */}
               <motion.div
@@ -66,17 +66,17 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="max-w-[650px] text-[42px] font-black leading-[1.04] tracking-[-0.04em] text-black sm:text-[54px] md:text-[60px] lg:text-[54px] xl:text-[64px]"
+                className="text-[40px] font-black leading-[1.04] tracking-[-0.04em] text-black sm:text-[50px] md:text-[56px] lg:text-[42px] xl:text-[52px]"
               >
-                Ideas become
+                Where Vision 
                 <br />
 
                 <span className="text-black">
-                  ventures{" "}
+                  Becomes {" "}
                 </span>
 
                 <span className="text-red-600">
-                  here.
+                  Ventures
                 </span>
               </motion.h1>
 
@@ -85,7 +85,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.25 }}
-                className="mt-6 max-w-[540px] text-[16px] leading-7 text-gray-600 md:text-[17px]"
+                className="mt-6 max-w-[480px] text-[15px] leading-relaxed text-gray-600 md:text-[16px]"
               >
                 A founder-first ecosystem at NIET, connecting ambitious
                 innovators with expert mentorship, research infrastructure,
@@ -146,14 +146,14 @@ export default function Hero() {
             </div>
 
             {/* =====================================================
-                RIGHT IMAGE
+                RIGHT IMAGE (60% width on desktop)
             ===================================================== */}
 
             <motion.div
               initial={{ opacity: 0, scale: 1.02 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative min-h-[400px] overflow-hidden lg:min-h-full"
+              className="relative min-h-[400px] overflow-hidden lg:min-h-full lg:col-span-3"
             >
               {/* Existing TBI background */}
               <div
@@ -174,13 +174,13 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.6 }}
-                className="absolute bottom-7 left-7 right-7 max-w-[360px] rounded-[4px] border border-white/20 bg-black/75 p-5 text-white backdrop-blur-md"
+                className="absolute bottom-7 left-7 right-7 max-w-[360px] rounded-[2px] border border-white/30 bg-black/45 p-5 text-white backdrop-blur-sm"
               >
                 <p className="mb-2 text-[9px] font-bold uppercase tracking-[0.2em] text-red-500">
                   01 / Founder Story
                 </p>
 
-                <p className="text-lg font-semibold leading-tight text-white">
+                <p className="mb-2 text-[12px] font-bold uppercase tracking-[0.2em] text-white">
                   Turning research and ideas into resilient businesses.
                 </p>
               </motion.div>

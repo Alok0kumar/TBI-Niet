@@ -253,7 +253,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link
               href="/apply"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A58CA] hover:bg-[#08449c] dark:bg-red-600 dark:hover:bg-red-700 text-white font-medium rounded-full text-sm transition-colors shadow-sm"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-[#D22B2B] hover:bg-[#EE4B2B] dark:bg-red-600 dark:hover:bg-red-700 text-white font-medium rounded-full text-sm transition-colors shadow-sm"
             >
               Apply Now
               <ArrowRight className="w-4 h-4" />
