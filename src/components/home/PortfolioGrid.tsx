@@ -3,11 +3,12 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, staggerContainer, viewport } from "@/lib/animations";
-import { ChevronDown, Filter, ExternalLink } from "lucide-react";
+import { ChevronDown, Filter, ExternalLink, Search, X } from "lucide-react";
 import { ALL_STARTUPS, Startup } from "@/data/startups";
 
 export default function PortfolioGrid() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All Startups");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [visibleCount, setVisibleCount] = useState<number>(6);
   const [activeFlippedId, setActiveFlippedId] = useState<string | null>(null);
   const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);
@@ -39,11 +40,20 @@ export default function PortfolioGrid() {
     return ["All Startups", ...Array.from(set).sort()];
   }, []);
 
-  // Filter and sort startups: custom logos first, default TBI fallback logos last
+  // Filter and sort startups: category filter + search query filter, custom logos first
   const filteredStartups = useMemo(() => {
     let list = ALL_STARTUPS;
     if (selectedCategory !== "All Startups") {
-      list = ALL_STARTUPS.filter((s) => s.category === selectedCategory);
+      list = list.filter((s) => s.category === selectedCategory);
+    }
+    const query = searchQuery.trim().toLowerCase();
+    if (query) {
+      list = list.filter((s) => {
+        const nameMatch = s.name.toLowerCase().includes(query);
+        const catMatch = s.category?.toLowerCase().includes(query);
+        const descMatch = s.desc?.toLowerCase().includes(query);
+        return nameMatch || catMatch || descMatch;
+      });
     }
     return [...list].sort((a, b) => {
       const isADefault = a.logo === "/tbi-logo-without-background.png";
@@ -52,7 +62,7 @@ export default function PortfolioGrid() {
       if (!isADefault && isBDefault) return -1;
       return 0;
     });
-  }, [selectedCategory]);
+  }, [selectedCategory, searchQuery]);
 
   // Current visible slice
   const visibleStartups = useMemo(() => {
@@ -62,6 +72,13 @@ export default function PortfolioGrid() {
   const handleCategoryChange = (cat: string) => {
     setSelectedCategory(cat);
     setVisibleCount(6); // Reset pagination on category filter change
+    setActiveFlippedId(null);
+    setUnflipClickedId(null);
+  };
+
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
+    setVisibleCount(6); // Reset pagination on search
     setActiveFlippedId(null);
     setUnflipClickedId(null);
   };
@@ -99,8 +116,8 @@ export default function PortfolioGrid() {
             </p>
           </motion.div>
 
-          {/* Lower Row: Incubated Startups heading on left, Dropdown on right */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-t border-gray-100 pt-8">
+          {/* Lower Row: Incubated Startups heading on left, Search & Category on right */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 border-t border-gray-100 pt-8">
             <motion.div
               variants={fadeUp}
               initial="hidden"
@@ -111,24 +128,48 @@ export default function PortfolioGrid() {
                 Incubated Startups
               </h2>
               <p className="text-gray-500 text-sm font-sans">
-                Explore the ventures growing with the NIET TBI ecosystem.
+                Explore the {filteredStartups.length} {filteredStartups.length === 1 ? "venture" : "ventures"} growing with the NIET TBI ecosystem.
               </p>
             </motion.div>
 
-            {/* Category Filter Dropdown */}
+            {/* Filter & Search Bar Container */}
             <motion.div
-              className="flex items-center"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto"
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={viewport}
             >
+              {/* Search Input Bar */}
+              <div className="relative flex-1 sm:w-64 md:w-72">
+                <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => handleSearchChange(e.target.value)}
+                  placeholder="Search by name, sector..."
+                  aria-label="Search startups"
+                  className="w-full bg-white border border-gray-200/90 rounded-full pl-9 pr-9 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D7193F]/25 focus:border-[#D7193F] shadow-sm transition-all"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => handleSearchChange("")}
+                    aria-label="Clear search"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors p-0.5"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
+
+              {/* Category Filter Dropdown */}
               <div className="relative inline-flex items-center rounded-full bg-white border border-gray-200/90 shadow-sm hover:shadow transition-all cursor-pointer">
                 <select
                   value={selectedCategory}
                   onChange={(e) => handleCategoryChange(e.target.value)}
                   aria-label="Filter startups by category"
-                  className="appearance-none bg-transparent pl-5 pr-10 py-2.5 font-bold text-gray-900 text-sm focus:outline-none cursor-pointer z-10 min-w-[150px]"
+                  className="appearance-none bg-transparent pl-5 pr-10 py-2.5 font-bold text-gray-900 text-sm focus:outline-none cursor-pointer z-10 w-full sm:w-auto min-w-[150px]"
                 >
                   {categories.map((cat) => (
                     <option key={cat} value={cat} className="bg-white text-gray-900 font-medium py-1">
@@ -255,6 +296,36 @@ export default function PortfolioGrid() {
             })}
           </AnimatePresence>
         </motion.div>
+
+        {/* Empty State when no results found */}
+        {filteredStartups.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center py-16 px-4 bg-gray-50/70 border border-dashed border-gray-200 rounded-3xl my-8 max-w-xl mx-auto"
+          >
+            <div className="w-12 h-12 rounded-full bg-red-50 text-[#D7193F] flex items-center justify-center mx-auto mb-4">
+              <Search className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg font-bold text-gray-900 mb-1">
+              No startups found
+            </h3>
+            <p className="text-gray-500 text-sm mb-5">
+              No incubated startups match &quot;{searchQuery}&quot;
+              {selectedCategory !== "All Startups" && ` in ${selectedCategory}`}.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategory("All Startups");
+              }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-gray-300 text-gray-800 text-xs font-bold hover:bg-gray-100 shadow-sm transition-all"
+            >
+              Clear filters
+            </button>
+          </motion.div>
+        )}
 
         {/* See More Startups Button */}
         {hasMore && (
