@@ -6,6 +6,8 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
+// Curated highlights for the home page — pulled from actual event data
+const newsHighlights = [
 interface NewsItem {
   id: string;
   category: string;
@@ -306,6 +308,8 @@ export default function NewsGrid() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <Link
+            href="/programs-events"
+           
             href="/news"
             className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full border border-neutral-900 text-neutral-900 font-semibold text-sm hover:bg-neutral-900 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer group"
           >

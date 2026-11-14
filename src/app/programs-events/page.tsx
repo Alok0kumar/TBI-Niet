@@ -1,4 +1,5 @@
-"use client";
+import type { Metadata } from "next";
+import EventsPageContent from "./EventsPageContent";
 
 import { useState } from "react";
 import { motion } from "framer-motion";

@@ -1,29 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Lightbulb, Users, TrendingUp, Target } from "lucide-react";
 import Link from "next/link";
 
-const stats = [
+const features = [
   {
-    value: "75+",
-    label: "Startups incubated",
-    accent: false,
+    icon: Lightbulb,
+    title: "Innovation",
+    subtitle: "Creating tomorrow",
   },
   {
-    value: "₹18Cr",
-    label: "Funding facilitated",
-    accent: true,
+    icon: Users,
+    title: "Incubation",
+    subtitle: "Nurturing ideas",
   },
   {
-    value: "320+",
-    label: "Jobs created",
-    accent: false,
+    icon: TrendingUp,
+    title: "Investment",
+    subtitle: "Fueling growth",
   },
   {
-    value: "28",
-    label: "IP filings supported",
-    accent: false,
+    icon: Target,
+    title: "Impact",
+    subtitle: "Building legacy",
   },
 ];
 
@@ -31,7 +31,8 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative mt-[82px] overflow-hidden bg-white"
+      className="relative flex flex-col overflow-hidden bg-white mt-[82px]"
+      style={{ minHeight: "calc(100vh - 82px)" }}
     >
       {/* =========================================================
           HERO
@@ -87,69 +88,75 @@ export default function Hero() {
                 transition={{ duration: 0.6, delay: 0.25 }}
                 className="mt-6 max-w-[480px] text-[15px] leading-relaxed text-gray-600 md:text-[16px]"
               >
-                A founder-first ecosystem at NIET, connecting ambitious
-                innovators with expert mentorship, research infrastructure,
-                funding opportunities and industry access.
-              </motion.p>
-
-              {/* Recognition */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.35 }}
-                className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-gray-500"
-              >
-                <span className="font-medium text-gray-700">
-                  Recognized by MSME
-                </span>
-
-                <span className="hidden h-1 w-1 rounded-full bg-gray-400 sm:block" />
-
-                <span>Startup ecosystem</span>
-
-                <span className="hidden h-1 w-1 rounded-full bg-gray-400 sm:block" />
-
-                <span>Greater Noida, India</span>
-              </motion.div>
-
-              {/* CTA */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.45 }}
-                className="mt-8 flex flex-wrap gap-3"
-              >
-                {/* Primary */}
-                <Link
-                  href="/apply"
-                  className="group inline-flex items-center gap-2 rounded-[4px] bg-red-600 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-red-700 hover:shadow-lg"
+                {/* Line 1 – black */}
+                <motion.span
+                  className="block"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.1 }}
                 >
-                  Start your application
+                  Igniting Innovation,
+                </motion.span>
 
-                  <ArrowRight
-                    className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </Link>
-
-                {/* Secondary */}
-                <Link
-                  href="/incubation"
-                  className="group inline-flex items-center gap-2 rounded-[4px] bg-[#242424] px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-black"
+                {/* Line 2 – red */}
+                <motion.span
+                  className="block text-red-600"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.25 }}
                 >
-                  Explore the incubator
-
-                  <ArrowRight
-                    className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </Link>
-              </motion.div>
+                  Translating Ideas into Reality.
+                </motion.span>
+              </h1>
             </div>
 
+            {/* Recognition line */}
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="text-[15px] md:text-[16px] leading-7 text-gray-800 font-semibold mb-3"
+            >
+              Duly recognized Incubator by Department of IT & Electronics, GoUP, and Ministry of MSME.
+            </motion.p>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-[15px] md:text-[16px] leading-7 text-gray-600 mb-10"
+            >
+              NIET Technology Business Incubator Foundation is a Section-8 Company providing 24/7 co-working space, flexible incubation, access to prototype labs, and dedicated handholding support from idea to growth.
+            </motion.p>
             {/* =====================================================
                 RIGHT IMAGE (60% width on desktop)
             ===================================================== */}
 
+            {/* CTA Buttons */}
             <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.75 }}
+              className="flex flex-wrap gap-4"
+            >
+              {/* Primary – red pill */}
+              <Link
+                href="/apply"
+                className="group inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-red-700 hover:shadow-lg hover:-translate-y-0.5"
+              >
+                Apply for Incubation
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+
+              {/* Secondary – outlined pill */}
+              <Link
+                href="/programs-events"
+                className="group inline-flex items-center gap-2 rounded-full border-2 border-gray-900 bg-white/80 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold text-gray-900 transition-all duration-300 hover:bg-gray-900 hover:text-white hover:-translate-y-0.5"
+              >
+                Explore Programs
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
               initial={{ opacity: 0, scale: 1.02 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
@@ -185,76 +192,36 @@ export default function Hero() {
                 </p>
               </motion.div>
             </motion.div>
+
           </div>
         </div>
       </div>
 
-      {/* =========================================================
-          STATS SECTION
-      ========================================================= */}
-
-      <div className="w-full bg-[#fafaf8] py-12 md:py-16">
-        <div className="w-full px-6 md:px-12 lg:px-16">
+      {/* ── Feature strip pinned to the bottom ── */}
+      <div className="relative z-10 w-full border-t border-gray-200 bg-white/90 backdrop-blur-md">
+        <div className="w-full px-4 md:px-8 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
+            transition={{ duration: 0.7, delay: 1.0 }}
+            className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200"
           >
-            {/* Section heading */}
-            <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-              <div>
-                <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-red-600">
-                  The ecosystem in numbers
-                </p>
-
-                <h2 className="max-w-[600px] text-3xl font-black leading-tight tracking-[-0.025em] text-black md:text-4xl">
-                  Innovation measured by real-world impact.
-                </h2>
-              </div>
-
-              <p className="max-w-[360px] text-sm leading-6 text-gray-500">
-                From the first sketch to market scale, NIET TBI provides
-                founders the structure, network and confidence to move forward.
-              </p>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 overflow-hidden rounded-[12px] border border-gray-200/80 bg-white shadow-sm lg:grid-cols-4">
-              {stats.map((stat, index) => (
-                <div
-                  key={stat.label}
-                  className={`
-                    relative
-                    px-6
-                    py-8
-                    sm:px-8
-                    ${index !== 3
-                      ? "border-b border-gray-200 lg:border-b-0 lg:border-r"
-                      : ""
-                    }
-                    ${index === 1
-                      ? "max-lg:border-r-0 lg:border-r"
-                      : ""
-                    }
-                    ${index === 2
-                      ? "max-lg:border-b-0"
-                      : ""
-                    }
-                  `}
-                >
-                  <p
-                    className={`text-3xl font-black tracking-tight md:text-4xl ${stat.accent ? "text-red-600" : "text-black"
-                      }`}
-                  >
-                    {stat.value}
-                  </p>
-
-                  <p className="mt-2 text-xs text-gray-500 md:text-sm font-medium">
-                    {stat.label}
-                  </p>
+            {features.map(({ icon: Icon, title, subtitle }) => (
+              <div
+                key={title}
+                className="flex items-center gap-4 px-6 py-6 hover:bg-red-50 transition-colors duration-300"
+              >
+                {/* Icon – stroke only, no background */}
+                <Icon
+                  className="h-8 w-8 shrink-0 text-red-600"
+                  strokeWidth={1.5}
+                />
+                <div>
+                  <p className="text-sm font-bold text-gray-900">{title}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </motion.div>
         </div>
       </div>

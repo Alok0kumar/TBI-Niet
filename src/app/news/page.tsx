@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 "use client";
 
 import { useState } from "react";
@@ -16,7 +17,9 @@ const allNews = [
   { category: "Startup Stories", date: "Jun 2024", title: "Printables Crosses â‚¹10L Monthly Revenue", excerpt: "D2C stationery brand scales with E-Cell's marketing support.", gradient: "from-pink-500 to-rose-500" },
 ];
 
+// Redirect legacy /news route to the unified /programs-events page
 export default function NewsPage() {
+  redirect("/programs-events");
   const [filter, setFilter] = useState("All");
   const filtered = filter === "All" ? allNews : allNews.filter((n) => n.category === filter);
 
