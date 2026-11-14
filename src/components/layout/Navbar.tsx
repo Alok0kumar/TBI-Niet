@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,7 +13,6 @@ import {
   Rocket,
   Gauge,
   Coins,
-  Users,
   Building2,
   ChevronDown,
   ArrowRight
@@ -57,6 +57,13 @@ export default function Navbar() {
   const [isMobileProgramsOpen, setIsMobileProgramsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setIsMobileOpen(false);
+    setIsMobileProgramsOpen(false);
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,11 +76,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    setIsMobileOpen(false);
-    setIsMobileProgramsOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     if (isMobileOpen) {
@@ -89,19 +91,23 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-[100] h-[82px] flex items-center transition-all duration-300 bg-[#FAF9F6]/95 backdrop-blur-xl border-b border-gray-200/50 shadow-sm`}
+        className={`fixed top-0 left-0 w-full z-[100] h-[82px] flex items-center transition-all duration-300 ${
+          isScrolled ? "bg-[#FAF9F6]/98 shadow-md" : "bg-[#FAF9F6]/95 shadow-sm"
+        } backdrop-blur-xl border-b border-gray-200/50`}
         id="main-nav"
-        
       >
         <div className="max-w-full px-4 md:px-8 w-full flex justify-between items-center">
 
           {/* Left: Logo & Branding */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative h-14 sm:h-[58px] md:h-16 w-auto transition-transform duration-300 group-hover:scale-105">
-              <img
+              <Image
                 alt="NIET Technology Business Incubator"
+                width={200}
+                height={64}
                 className="h-full w-auto object-contain"
                 src="/72 ppi PNG.png"
+                priority
               />
             </div>
 

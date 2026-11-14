@@ -133,8 +133,8 @@ export const allEvents: EventItem[] = [
     visual: "panel",
   },
   {
-    id: "e-cell-orientation",
-    name: "E-Cell Orientation",
+    id: "tbi-orientation",
+    name: "TBI Orientation Session",
     type: "Networking",
     status: "upcoming",
     isoDate: "2026-12-22",

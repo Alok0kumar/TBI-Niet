@@ -38,7 +38,6 @@ export const metadata: Metadata = {
     "startup",
     "Greater Noida",
     "MSME",
-    "E-Cell",
     "technology",
     "business incubator",
     "student startups",

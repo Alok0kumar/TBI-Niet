@@ -77,6 +77,7 @@ export default function ApplyForm() {
   const [currentStep, setCurrentStep] = useState(0);
   const [direction, setDirection] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [appRef] = useState(() => "TBI-2026-" + Math.floor(1000 + Math.random() * 9000));
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -177,7 +178,7 @@ export default function ApplyForm() {
             <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200/80 text-left space-y-2 mb-8 text-xs text-neutral-600">
               <div className="flex justify-between">
                 <span className="text-neutral-500">Application Reference:</span>
-                <span className="font-mono font-bold text-neutral-800">TBI-2026-{(Math.random() * 9000 + 1000).toFixed(0)}</span>
+                <span className="font-mono font-bold text-neutral-800">{appRef}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-neutral-500">Review Timeline:</span>

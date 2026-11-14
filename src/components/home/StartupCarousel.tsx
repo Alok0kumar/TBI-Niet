@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { fadeUp, viewport } from "@/lib/animations";
+import { fadeUp } from "@/lib/animations";
 import { ExternalLink, Truck, Lightbulb, Package, ShoppingBag } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 

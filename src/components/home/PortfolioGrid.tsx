@@ -3,8 +3,8 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, staggerContainer, viewport } from "@/lib/animations";
-import { ChevronDown, Filter, ExternalLink, Search, X } from "lucide-react";
-import { ALL_STARTUPS, Startup } from "@/data/startups";
+import { ChevronDown, ExternalLink, Search, X } from "lucide-react";
+import { ALL_STARTUPS } from "@/data/startups";
 
 export default function PortfolioGrid() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All Startups");
@@ -12,7 +12,6 @@ export default function PortfolioGrid() {
   const [visibleCount, setVisibleCount] = useState<number>(6);
   const [activeFlippedId, setActiveFlippedId] = useState<string | null>(null);
   const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);
-  const [unflipClickedId, setUnflipClickedId] = useState<string | null>(null);
 
   const handleCardClick = (id: string) => {
     if (activeFlippedId === id) {
@@ -73,14 +72,12 @@ export default function PortfolioGrid() {
     setSelectedCategory(cat);
     setVisibleCount(6); // Reset pagination on category filter change
     setActiveFlippedId(null);
-    setUnflipClickedId(null);
   };
 
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
     setVisibleCount(6); // Reset pagination on search
     setActiveFlippedId(null);
-    setUnflipClickedId(null);
   };
 
   const hasMore = visibleCount < filteredStartups.length;

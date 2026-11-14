@@ -6,11 +6,7 @@ import { motion } from "framer-motion";
 /**
  * A fully self-contained (no external photo dependency) recreation of the
  * "stage" visual from the reference design: warm ceiling lighting, sweeping
- * red/blue spotlight beams, and the E-Cell rocket mark front and center.
- *
- * Built entirely from CSS gradients + the existing /ecell-rocket-logo.png
- * asset so it never 404s, never depends on a third-party image host, and
- * scales/animates smoothly.
+ * red/blue spotlight beams, and the NIET TBI mark front and center.
  */
 export default function EventStageVisual() {
   return (
@@ -129,18 +125,18 @@ export default function EventStageVisual() {
           </ul>
         </div>
 
-        {/* Center rocket mark */}
+        {/* Center TBI mark */}
         <div className="flex-1 flex flex-col items-center justify-center px-2 shrink-0">
           <motion.div
-            className="relative w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24"
+            className="relative w-20 h-14 sm:w-28 sm:h-18 lg:w-32 lg:h-20"
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
           >
             <Image
-              src="/ecell-rocket-logo.png"
-              alt="E-Cell NIET"
+              src="/72 ppi PNG.png"
+              alt="NIET TBI"
               fill
-              sizes="120px"
+              sizes="140px"
               className="object-contain drop-shadow-sm"
               priority
             />
@@ -149,14 +145,14 @@ export default function EventStageVisual() {
             className="mt-2 text-[11px] sm:text-sm font-black tracking-tight text-gray-900 text-center leading-none"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            E-CELL
+            NIET TBI
           </p>
           <span className="mt-1 w-8 h-px bg-gray-300" />
           <p
             className="mt-1 text-[7px] sm:text-[9px] tracking-[0.3em] text-gray-400 uppercase"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            NIET
+            INCUBATOR
           </p>
         </div>
 

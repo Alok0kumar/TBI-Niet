@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, slideInLeft, slideInRight, viewport } from "@/lib/animations";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { Building2, Target, Eye, Award, MapPin, Calendar, ExternalLink, Users, Zap, Shield, TrendingUp, GraduationCap } from "lucide-react";
+import { Building2, Target, Eye, MapPin, Users, Shield, TrendingUp, GraduationCap } from "lucide-react";
 import JourneyTimeline from "@/components/about/JourneyTimeline";
 
 const boardMembers = [

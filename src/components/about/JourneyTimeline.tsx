@@ -10,8 +10,7 @@ import {
   Star,
   Rocket,
   CheckCircle2,
-  ChevronRight,
-  Sparkles
+  ChevronRight
 } from "lucide-react";
 
 export interface MilestoneItem {
@@ -125,19 +124,10 @@ export const MILESTONES_DATA: MilestoneItem[] = [
   }
 ];
 
-// Exact SVG node coordinates matching the 6 icons across the wave
-const NODE_COORDINATES: Record<string, { x: number; y: number; index: number }> = {
-  "2016": { x: 25, y: 28, index: 0 },
-  "2019": { x: 195, y: 56, index: 1 },
-  "2021": { x: 360, y: 28, index: 2 },
-  "2024": { x: 530, y: 56, index: 3 },
-  "2025": { x: 700, y: 28, index: 4 },
-  "2026": { x: 838, y: 56, index: 5 }
-};
-
 export default function JourneyTimeline() {
   const [activeId, setActiveId] = useState<string>(MILESTONES_DATA[0].id);
   const storyDetailsRef = React.useRef<HTMLDivElement>(null);
+  const counterRef = React.useRef(0);
   const [transitionState, setTransitionState] = useState<{
     fromId: string;
     toId: string;
@@ -148,10 +138,11 @@ export default function JourneyTimeline() {
     MILESTONES_DATA.find((m) => m.id === activeId) || MILESTONES_DATA[0];
 
   const handleSelectMilestone = (id: string) => {
+    counterRef.current += 1;
     setTransitionState({
       fromId: activeId,
       toId: id,
-      key: Date.now()
+      key: counterRef.current
     });
     setActiveId(id);
 

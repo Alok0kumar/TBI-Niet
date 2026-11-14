@@ -110,9 +110,11 @@ export default function Footer() {
             {/* Logo */}
             <Link href="/" className="inline-block mb-6 group">
               <div className="h-14 w-auto flex items-center">
-                <img
+                <Image
                   src="/72 ppi PNG.png"
                   alt="NIET Technology Business Incubator"
+                  width={180}
+                  height={56}
                   className="h-full w-auto object-contain transition-transform group-hover:scale-102"
                 />
               </div>

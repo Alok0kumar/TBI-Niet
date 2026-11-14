@@ -57,7 +57,7 @@ export default function Hero() {
                 <span className="h-[2px] w-8 bg-red-600" />
 
                 <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-red-600">
-                  Building What's Next
+                  Building What&apos;s Next
                 </span>
               </motion.div>
 

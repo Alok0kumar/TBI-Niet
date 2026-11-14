@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   MessageCircle,
-  Sparkles,
   CheckCircle2,
   Coins,
   Building,

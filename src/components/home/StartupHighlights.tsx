@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { slideInLeft, slideInRight, viewport } from "@/lib/animations";
 
@@ -27,10 +28,12 @@ export default function StartupHighlights() {
               viewport={viewport}
               className="flex items-center justify-center"
             >
-              <img
+              <Image
                 src="/startup circle.webp"
                 alt="We are in following sectors"
-                className="w-full max-w-[530px] object-contain"
+                width={530}
+                height={530}
+                className="w-full max-w-[530px] h-auto object-contain"
               />
             </motion.div>
 
@@ -115,9 +118,11 @@ export default function StartupHighlights() {
                className="flex flex-col items-start gap-4 lg:w-[260px] mx-auto lg:mx-0"
              >
                <div className="relative">
-                 <img
+                 <Image
                    src="/Dr. Sanjay Kumar.webp"
                    alt="Dr. Sanjay Kumar"
+                   width={220}
+                   height={280}
                    className="w-[220px] h-[280px] object-cover object-top relative z-10"
                  />
                  {/* Red accent block on left bottom corner */}
