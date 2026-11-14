@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "NIET TBI — Technology Business Incubator",
+  description: "NIET TBI is NIET's premier incubation center in Greater Noida, supporting 75+ startups with seed funding, mentorship, workspace, and a path to market.",
+};
 import Hero from "@/components/home/Hero";
 import AboutSection from "@/components/home/AboutSection";
 import StartupHighlights from "@/components/home/StartupHighlights";
@@ -23,4 +29,5 @@ export default function Home() {
     </>
   );
 }
+
 

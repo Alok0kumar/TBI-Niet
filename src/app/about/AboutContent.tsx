@@ -4,15 +4,7 @@ import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, slideInLeft, slideInRight, viewport } from "@/lib/animations";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Building2, Target, Eye, Award, MapPin, Calendar, ExternalLink, Users, Zap, Shield, TrendingUp, GraduationCap } from "lucide-react";
-
-const milestones = [
-  { year: "Foundation", title: "NIET TBI Established", desc: "Technology Business Incubator launched at NIET Greater Noida" },
-  { year: "Recognition", title: "MSME Approval", desc: "Received official recognition from Ministry of MSME, Government of India" },
-  { year: "Growth", title: "Ecosystem Expansion", desc: "Built comprehensive support system with mentors, funding, and infrastructure" },
-  { year: "Innovation", title: "Multi-Sector Focus", desc: "Expanded to support startups across technology, manufacturing, and services" },
-  { year: "Impact", title: "Scale & Success", desc: "Crossed 50+ incubated startups with strong survival rate and job creation" },
-  { year: "Future", title: "Deep-Tech Vision", desc: "Focus on AI, IoT, blockchain, and emerging technology ventures" },
-];
+import JourneyTimeline from "@/components/about/JourneyTimeline";
 
 const boardMembers = [
   { 
@@ -74,7 +66,6 @@ export default function AboutContent() {
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-primary grid-pattern" />
-        <div className="aurora-blob aurora-blob--cyan absolute top-0 right-0 opacity-20 animate-float" />
 
         <div className="relative container-custom">
           <motion.div
@@ -82,7 +73,10 @@ export default function AboutContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="eyebrow mb-4 inline-block">// ABOUT</span>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-[3px] h-[18px] bg-accent rounded-full" />
+              <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">ABOUT</span>
+            </div>
             <h1
               className="font-[family-name:var(--font-display)] font-bold text-white leading-[1.1] mb-4"
               style={{ fontSize: "clamp(40px, 5vw, 72px)" }}
@@ -96,50 +90,8 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* Story Timeline */}
-      <section className="section-padding bg-surface relative">
-        <div className="absolute inset-0 dot-pattern opacity-15" />
-        <div className="relative container-custom">
-          <SectionHeading
-            eyebrow="// OUR JOURNEY"
-            title="From 2014 to today."
-            subtitle="Key milestones that shaped NIET TBI into Greater Noida's premier incubation center."
-          />
-
-          <div className="relative max-w-4xl mx-auto">
-            {/* Vertical line */}
-            <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-[2px] bg-gradient-to-b from-accent via-accent-warm to-accent" />
-
-            {milestones.map((milestone, i) => (
-              <motion.div
-                key={milestone.year}
-                className={`relative flex items-start gap-8 mb-12 last:mb-0 ${
-                  i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewport}
-                transition={{ delay: i * 0.1 }}
-              >
-                {/* Dot */}
-                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-accent border-4 border-primary z-10" />
-
-                {/* Content */}
-                <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
-                  <span className="font-[family-name:var(--font-mono)] text-accent text-sm font-bold">
-                    {milestone.year}
-                  </span>
-                  <h3 className="font-[family-name:var(--font-display)] font-bold text-white text-xl mt-1 mb-2">
-                    {milestone.title}
-                  </h3>
-                  <p className="text-text-muted text-sm">{milestone.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Journey Timeline */}
+      <JourneyTimeline />
 
       {/* Vision & Mission */}
       <section className="section-padding relative">
@@ -195,7 +147,7 @@ export default function AboutContent() {
         <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="relative container-custom">
           <SectionHeading
-            eyebrow="// WHY NIET TBI"
+            eyebrow="WHY NIET TBI"
             title="What sets us apart."
           />
 
@@ -229,7 +181,7 @@ export default function AboutContent() {
       <section className="section-padding relative">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="// LEADERSHIP"
+            eyebrow="LEADERSHIP"
             title="Board Members"
             subtitle="The team guiding NIET TBI's strategy and growth."
           />
@@ -305,3 +257,4 @@ export default function AboutContent() {
     </>
   );
 }
+

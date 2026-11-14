@@ -51,22 +51,8 @@ const programItems = [
     icon: Building2,
   },
 ];
-const discoverItems = [
-  {
-    label: "Who we are",
-    href: "/about",
-    icon: Users,
-  },
-  {
-    label: "Association",
-    href: "/associations",
-    icon: Users,
-  },
-];
-
 export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isDiscoverOpen, setIsDiscoverOpen] = useState(false);
   const [isProgramsOpen, setIsProgramsOpen] = useState(false);
   const [isMobileProgramsOpen, setIsMobileProgramsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -105,13 +91,13 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 w-full z-[100] h-[82px] flex items-center transition-all duration-300 bg-[#FAF9F6]/95 backdrop-blur-xl border-b border-gray-200/50 shadow-sm`}
         id="main-nav"
-        style={{ fontFamily: "'Outfit', sans-serif" }}
+        
       >
         <div className="max-w-full px-4 md:px-8 w-full flex justify-between items-center">
 
           {/* Left: Logo & Branding */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-12 w-auto overflow-hidden transition-transform duration-300 group-hover:scale-105" id="logo-container">
+            <div className="relative h-14 sm:h-[58px] md:h-16 w-auto transition-transform duration-300 group-hover:scale-105">
               <img
                 alt="NIET Technology Business Incubator"
                 className="h-full w-auto object-contain"
@@ -124,51 +110,22 @@ export default function Navbar() {
           {/* Center: Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
             <Link
-              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"
+              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/" ? "text-[#C41E3A] active" : "text-neutral-600 hover:text-[#C41E3A]"
                 }`}
               href="/"
             >
               Home
             </Link>
-            <div
-              className="relative py-2"
-              onMouseEnter={() => setIsDiscoverOpen(true)}
-              onMouseLeave={() => setIsDiscoverOpen(false)}
+            <Link
+              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${
+                pathname === "/about"
+                  ? "text-[#C41E3A] active"
+                  : "text-neutral-600 hover:text-[#C41E3A]"
+              }`}
+              href="/about"
             >
-              <button className="flex items-center gap-1 text-sm font-medium text-neutral-600 hover:text-[#E81010] transition-colors cursor-pointer">
-                Discover
-                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isDiscoverOpen ? "rotate-180" : ""}`} />
-              </button>
-
-              {/* Dropdown Menu */}
-              <AnimatePresence>
-                {isDiscoverOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 w-64 pt-4 z-50"
-                  >
-                    <div className="bg-white border border-gray-200/55 rounded-none shadow-xl overflow-hidden p-2 backdrop-blur-xl">
-                      {discoverItems.map((item) => {
-                        const Icon = item.icon;
-                        return (
-                          <Link
-                            key={item.label}
-                            className="flex items-center gap-3 px-4 py-3 rounded-none hover:bg-gray-100 text-neutral-700 hover:text-[#E81010] transition-all"
-                            href={item.href}
-                          >
-                            <Icon className="w-5 h-5 text-[#E81010]/80" />
-                            <span className="text-xs font-medium">{item.label}</span>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              Who we are
+            </Link>
 
             {/* Dropdown */}
             <div
@@ -176,7 +133,7 @@ export default function Navbar() {
               onMouseEnter={() => setIsProgramsOpen(true)}
               onMouseLeave={() => setIsProgramsOpen(false)}
             >
-              <button className="flex items-center gap-1 text-sm font-medium text-neutral-600 hover:text-[#E81010] transition-colors cursor-pointer">
+              <button className="flex items-center gap-1 text-sm font-medium text-neutral-600 hover:text-[#C41E3A] transition-colors cursor-pointer">
                 Entreprenuership &  Innovation
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isProgramsOpen ? "rotate-180" : ""}`} />
               </button>
@@ -197,10 +154,10 @@ export default function Navbar() {
                         return (
                           <Link
                             key={item.label}
-                            className="flex items-center gap-3 px-4 py-3 rounded-none hover:bg-gray-100 text-neutral-700 hover:text-[#E81010] transition-all"
+                            className="flex items-center gap-3 px-4 py-3 rounded-none hover:bg-gray-100 text-neutral-700 hover:text-[#C41E3A] transition-all"
                             href={item.href}
                           >
-                            <Icon className="w-5 h-5 text-[#E81010]/80" />
+                            <Icon className="w-5 h-5 text-[#C41E3A]/80" />
                             <span className="text-xs font-medium">{item.label}</span>
                           </Link>
                         );
@@ -212,35 +169,35 @@ export default function Navbar() {
             </div>
 
             <Link
-              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/portfolio" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"
+              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/portfolio" ? "text-[#C41E3A] active" : "text-neutral-600 hover:text-[#C41E3A]"
                 }`}
               href="/portfolio"
             >
               Portfolio
             </Link>
             <Link
-              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/mentors" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"
+              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/mentors" ? "text-[#C41E3A] active" : "text-neutral-600 hover:text-[#C41E3A]"
                 }`}
               href="/mentors"
             >
               Mentors
             </Link>
             <Link
-              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/programs-events" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"
+              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/programs-events" ? "text-[#C41E3A] active" : "text-neutral-600 hover:text-[#C41E3A]"
                 }`}
               href="/programs-events"
             >
               News & Events
             </Link>
             <Link
-              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/contact" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"
+              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/contact" ? "text-[#C41E3A] active" : "text-neutral-600 hover:text-[#C41E3A]"
                 }`}
               href="/contact"
             >
               Contact
             </Link>
             <a
-              className="text-sm font-medium transition-colors nav-link-underline py-2 text-neutral-600 hover:text-[#E81010]"
+              className="text-sm font-medium transition-colors nav-link-underline py-2 text-neutral-600 hover:text-[#C41E3A]"
               href="https://reservation-protal-final.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
@@ -249,15 +206,25 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Right: CTA & Mobile Hamburger */}
+          {/* Right: CTA Split Button & Mobile Hamburger */}
           <div className="flex items-center gap-4">
-            <Link
-              href="/apply"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A58CA] hover:bg-[#08449c] dark:bg-red-600 dark:hover:bg-red-700 text-white font-medium rounded-full text-sm transition-colors shadow-sm"
-            >
-              Apply Now
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            {/* Split Button: Startup Login | Apply Now */}
+            <div className="hidden md:inline-flex items-stretch rounded-full overflow-hidden border border-[#A81830] shadow-sm bg-[#C41E3A]">
+              <Link
+                href="/login"
+                className="px-3.5 py-2 text-xs lg:text-sm font-medium text-white transition-colors duration-150 hover:bg-[#A81830] active:bg-[#7D1224] flex items-center justify-center select-none"
+              >
+                Startup Login
+              </Link>
+              <span className="w-px h-4 bg-white/35 self-center" aria-hidden="true" />
+              <Link
+                href="/apply"
+                className="px-3.5 py-2 text-xs lg:text-sm font-medium text-white transition-colors duration-150 hover:bg-[#A81830] active:bg-[#7D1224] flex items-center justify-center gap-1.5 select-none"
+              >
+                <span>Apply Now</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
 
             {/* Mobile Hamburger */}
             <button
@@ -291,7 +258,7 @@ export default function Navbar() {
               <div className="flex flex-col gap-4 text-left">
                 <Link
                   href="/"
-                  className={`text-xl font-semibold py-2 ${pathname === "/" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  className={`text-xl font-semibold py-2 ${pathname === "/" ? "text-[#C41E3A] dark:text-red-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -299,11 +266,11 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/about"
-                  className={`text-xl font-semibold py-2 ${pathname === "/about" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  className={`text-xl font-semibold py-2 ${pathname === "/about" ? "text-[#C41E3A] dark:text-red-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
-                  About
+                  Who we are
                 </Link>
 
                 {/* Mobile Dropdown Trigger */}
@@ -331,10 +298,10 @@ export default function Navbar() {
                             <Link
                               key={item.label}
                               href={item.href}
-                              className="flex items-center gap-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#155DFB] dark:hover:text-blue-500"
+                              className="flex items-center gap-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#C41E3A] dark:hover:text-red-500"
                               onClick={() => setIsMobileOpen(false)}
                             >
-                              <Icon className="w-4 h-4 text-[#155DFB]/80 dark:text-blue-500/80" />
+                              <Icon className="w-4 h-4 text-[#C41E3A]/80 dark:text-red-500/80" />
                               <span>{item.label}</span>
                             </Link>
                           );
@@ -346,7 +313,7 @@ export default function Navbar() {
 
                 <Link
                   href="/portfolio"
-                  className={`text-xl font-semibold py-2 ${pathname === "/portfolio" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  className={`text-xl font-semibold py-2 ${pathname === "/portfolio" ? "text-[#C41E3A] dark:text-red-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -354,7 +321,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/mentors"
-                  className={`text-xl font-semibold py-2 ${pathname === "/mentors" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  className={`text-xl font-semibold py-2 ${pathname === "/mentors" ? "text-[#C41E3A] dark:text-red-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -362,7 +329,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/programs-events"
-                  className={`text-xl font-semibold py-2 ${pathname === "/programs-events" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  className={`text-xl font-semibold py-2 ${pathname === "/programs-events" ? "text-[#C41E3A] dark:text-red-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -370,7 +337,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/contact"
-                  className={`text-xl font-semibold py-2 ${pathname === "/contact" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  className={`text-xl font-semibold py-2 ${pathname === "/contact" ? "text-[#C41E3A] dark:text-red-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -388,14 +355,24 @@ export default function Navbar() {
               </div>
 
               <div className="mt-auto pt-8">
-                <Link
-                  href="/apply"
-                  className="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#155DFB] dark:bg-blue-600 text-white font-semibold rounded-full text-base"
-                  onClick={() => setIsMobileOpen(false)}
-                >
-                  Apply Now
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
+                <div className="w-full inline-flex items-stretch rounded-full overflow-hidden border border-[#A81830] shadow-sm bg-[#C41E3A]">
+                  <Link
+                    href="/login"
+                    className="flex-1 text-center py-3.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-[#A81830] active:bg-[#7D1224] select-none"
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    Startup Login
+                  </Link>
+                  <span className="w-px h-5 bg-white/35 self-center" aria-hidden="true" />
+                  <Link
+                    href="/apply"
+                    className="flex-1 flex items-center justify-center gap-1.5 py-3.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-[#A81830] active:bg-[#7D1224] select-none"
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    <span>Apply Now</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -404,3 +381,6 @@ export default function Navbar() {
     </>
   );
 }
+
+
+

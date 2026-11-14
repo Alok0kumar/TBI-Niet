@@ -57,12 +57,10 @@ export default function IncubationContent() {
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-primary grid-pattern" />
-        <div className="aurora-blob aurora-blob--cyan absolute top-[-150px] left-[-100px] animate-float opacity-20" />
-        <div className="aurora-blob aurora-blob--orange absolute bottom-0 right-[-100px] animate-float-delay opacity-15" />
         <div className="relative container-custom text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="flex items-center gap-3 mb-6 justify-center">
-              <span className="w-[3px] h-[18px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
+              <span className="w-[3px] h-[18px] bg-accent rounded-full" />
               <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">
                 INCUBATION
               </span>
@@ -93,7 +91,7 @@ export default function IncubationContent() {
       <section className="section-padding bg-surface relative">
         <div className="absolute inset-0 dot-pattern opacity-15" />
         <div className="relative container-custom">
-          <SectionHeading eyebrow="// INCUBATION MODEL" title="Three tiers, one mission." subtitle="We support startups at every stage — from campus ideas to growth-stage companies." />
+          <SectionHeading eyebrow="INCUBATION MODEL" title="Three tiers, one mission." subtitle="We support startups at every stage — from campus ideas to growth-stage companies." />
           <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}>
             {tiers.map((tier) => (
               <motion.div key={tier.title} variants={fadeUp} className="group rounded-2xl bg-card border border-border p-8 card-hover">
@@ -118,7 +116,7 @@ export default function IncubationContent() {
       {/* Services */}
       <section className="section-padding relative">
         <div className="container-custom">
-          <SectionHeading eyebrow="// WHAT WE OFFER" title="Full-stack startup support." />
+          <SectionHeading eyebrow="WHAT WE OFFER" title="Full-stack startup support." />
           <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}>
             {services.map((service) => (
               <motion.div key={service.title} variants={fadeUp} className="rounded-2xl bg-card border border-border p-6 card-hover">
@@ -134,7 +132,7 @@ export default function IncubationContent() {
       {/* Eligibility */}
       <section className="section-padding bg-surface relative">
         <div className="relative container-custom">
-          <SectionHeading eyebrow="// ELIGIBILITY" title="Who can apply?" />
+          <SectionHeading eyebrow="ELIGIBILITY" title="Who can apply?" />
           <motion.div className="max-w-2xl mx-auto" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewport}>
             {eligibility.map((item, i) => (
               <motion.div key={i} variants={fadeUp} className="flex items-start gap-4 py-4 border-b border-border last:border-0">
@@ -152,7 +150,6 @@ export default function IncubationContent() {
       {/* Apply CTA */}
       <section className="py-24 relative bg-[#050505]">
         <div className="absolute inset-0 bg-[#050505]" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
         <motion.div className="relative container-custom text-center" variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}>
           <h2 className="font-[family-name:var(--font-display)] font-bold text-white text-3xl md:text-4xl mb-4">
             Ready to get incubated?
@@ -172,3 +169,6 @@ export default function IncubationContent() {
     </>
   );
 }
+
+
+

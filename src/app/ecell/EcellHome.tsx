@@ -84,8 +84,6 @@ export default function EcellHome() {
       {/* Hero */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-primary grid-pattern" />
-        <div className="aurora-blob aurora-blob--cyan absolute top-[-200px] right-[-100px] animate-float opacity-25" />
-        <div className="aurora-blob aurora-blob--orange absolute bottom-[-100px] left-[-100px] animate-float-delay opacity-20" />
 
         <div className="relative container-custom text-center pt-32 pb-20">
           <motion.div
@@ -162,7 +160,7 @@ export default function EcellHome() {
         <div className="absolute inset-0 dot-pattern opacity-15" />
         <div className="relative container-custom">
           <SectionHeading
-            eyebrow="// WHAT WE DO"
+            eyebrow="WHAT WE DO"
             title="Three pillars of student entrepreneurship."
           />
 
@@ -200,7 +198,7 @@ export default function EcellHome() {
       <section className="section-padding relative">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="// FLAGSHIP EVENTS"
+            eyebrow="FLAGSHIP EVENTS"
             title="Where innovation meets competition."
           />
 
@@ -252,7 +250,7 @@ export default function EcellHome() {
       <section className="section-padding bg-surface relative">
         <div className="relative container-custom">
           <SectionHeading
-            eyebrow="// SPEAKER WALL"
+            eyebrow="SPEAKER WALL"
             title="Learning from the best."
           />
 
@@ -280,7 +278,7 @@ export default function EcellHome() {
       <section className="section-padding relative">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="// THE TEAM"
+            eyebrow="THE TEAM"
             title="Student leaders driving E-Cell."
           />
 
@@ -317,7 +315,6 @@ export default function EcellHome() {
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[#030303]" />
         <div className="absolute inset-0 grid-pattern opacity-20" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
         <motion.div
           className="relative container-custom text-center"
@@ -350,3 +347,4 @@ export default function EcellHome() {
     </>
   );
 }
+

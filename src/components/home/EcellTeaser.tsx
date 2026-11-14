@@ -11,15 +11,11 @@ export default function EcellTeaser() {
       <div className="absolute inset-0 bg-[#030303]" />
 
       {/* Animated gradient orbs */}
-      <div className="absolute top-[-100px] left-[20%] w-[400px] h-[400px] rounded-full bg-accent/10 blur-[120px] animate-float" />
-      <div className="absolute bottom-[-100px] right-[20%] w-[300px] h-[300px] rounded-full bg-accent-warm/10 blur-[100px] animate-float-delay" />
 
       {/* Grid overlay */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
       {/* Border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-warm/30 to-transparent" />
 
       <motion.div
         className="relative container-custom text-center"

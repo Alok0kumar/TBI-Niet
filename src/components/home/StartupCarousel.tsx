@@ -145,7 +145,7 @@ export default function StartupCarousel() {
     <section className="relative section-padding overflow-hidden" id="startups">
       <div className="container-custom mb-2">
         <SectionHeading
-          eyebrow="// INCUBATED STARTUPS"
+          eyebrow="INCUBATED STARTUPS"
           title="Meet the founders building tomorrow."
           subtitle="From logistics to deep-tech — our portfolio spans the innovation spectrum."
           align="left"
@@ -188,3 +188,4 @@ export default function StartupCarousel() {
     </section>
   );
 }
+

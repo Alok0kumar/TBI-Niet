@@ -32,10 +32,15 @@ export default function MentorsPage() {
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-primary grid-pattern" />
         <div className="relative container-custom">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="eyebrow mb-4 inline-block">// MENTORS</span>
-            <h1 className="font-[family-name:var(--font-display)] font-bold text-white leading-[1.1] mb-4" style={{ fontSize: "clamp(40px, 5vw, 72px)" }}>
-              Learn from <span className="gradient-text">the best.</span>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <div className="flex items-center gap-3 mb-3">
+              <span className="w-[3px] h-[18px] bg-accent rounded-full" />
+              <span className="text-sm md:text-base font-mono font-bold tracking-[0.25em] text-accent uppercase pt-px">
+                MENTORS & EXPERTS
+              </span>
+            </div>
+            <h1 className="font-[family-name:var(--font-display)] font-bold text-gray-900 leading-[1.15] mb-4" style={{ fontSize: "clamp(32px, 4.5vw, 56px)" }}>
+              Learn from <span className="text-accent">the industry best.</span>
             </h1>
             <p className="text-text-muted text-lg max-w-2xl">100+ mentors across tech, finance, marketing, legal, and operations.</p>
           </motion.div>
@@ -98,3 +103,5 @@ export default function MentorsPage() {
     </>
   );
 }
+
+

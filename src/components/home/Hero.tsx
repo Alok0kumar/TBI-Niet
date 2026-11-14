@@ -34,31 +34,59 @@ export default function Hero() {
       className="relative flex flex-col overflow-hidden bg-white mt-[82px]"
       style={{ minHeight: "calc(100vh - 82px)" }}
     >
-      {/* ── Background Image ── */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/tbi-bg.webp')" }}
-      />
+      {/* =========================================================
+          HERO
+      ========================================================= */}
 
-      {/* ── Left white gradient overlay ── */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 25%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.1) 50%, transparent 60%)",
-        }}
-      />
+      <div className="w-full border-b border-gray-100">
+        <div className="w-full">
+          <div className="grid min-h-[580px] w-full lg:grid-cols-5">
 
-      {/* ── Main content area ── */}
-      <div className="relative z-10 flex flex-1 items-center">
-        <div className="w-full px-4 md:px-8 lg:px-12 py-16">
-          <div className="max-w-[580px]">
+            {/* =====================================================
+                LEFT CONTENT (40% width on desktop)
+            ===================================================== */}
 
-            {/* Heading */}
-            <div className="mb-6">
-              <h1
-                className="font-black text-black leading-tight"
-                style={{ fontSize: "clamp(40px, 5.5vw, 50px)", lineHeight: 1.2 }}
+            <div className="flex flex-col justify-center px-6 py-12 sm:px-10 md:px-12 lg:px-10 xl:px-14 lg:col-span-2">
+
+              {/* Eyebrow */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-6 flex items-center gap-3"
+              >
+                <span className="h-[2px] w-8 bg-red-600" />
+
+                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-red-600">
+                  Building What's Next
+                </span>
+              </motion.div>
+
+              {/* Main Heading */}
+              <motion.h1
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-[40px] font-black leading-[1.04] tracking-[-0.04em] text-black sm:text-[50px] md:text-[56px] lg:text-[42px] xl:text-[52px]"
+              >
+                Where Vision 
+                <br />
+
+                <span className="text-black">
+                  Becomes {" "}
+                </span>
+
+                <span className="text-red-600">
+                  Ventures
+                </span>
+              </motion.h1>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="mt-6 max-w-[480px] text-[15px] leading-relaxed text-gray-600 md:text-[16px]"
               >
                 {/* Line 1 – black */}
                 <motion.span
@@ -101,6 +129,9 @@ export default function Hero() {
             >
               NIET Technology Business Incubator Foundation is a Section-8 Company providing 24/7 co-working space, flexible incubation, access to prototype labs, and dedicated handholding support from idea to growth.
             </motion.p>
+            {/* =====================================================
+                RIGHT IMAGE (60% width on desktop)
+            ===================================================== */}
 
             {/* CTA Buttons */}
             <motion.div
@@ -126,6 +157,40 @@ export default function Hero() {
                 Explore Programs
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
+              initial={{ opacity: 0, scale: 1.02 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="relative min-h-[400px] overflow-hidden lg:min-h-full lg:col-span-3"
+            >
+              {/* Existing TBI background */}
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: "url('/tbi-bg.webp')",
+                }}
+              />
+
+              {/* Dark image overlay */}
+              <div className="absolute inset-0 bg-black/10" />
+
+              {/* Red visual accent */}
+              <div className="absolute -left-24 top-1/2 h-[520px] w-[260px] -translate-y-1/2 rounded-[50%] bg-red-600/80 mix-blend-multiply" />
+
+              {/* Bottom information card */}
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.6 }}
+                className="absolute bottom-7 left-7 right-7 max-w-[360px] rounded-[2px] border border-white/30 bg-black/45 p-5 text-white backdrop-blur-sm"
+              >
+                <p className="mb-2 text-[9px] font-bold uppercase tracking-[0.2em] text-red-500">
+                  01 / Founder Story
+                </p>
+
+                <p className="mb-2 text-[12px] font-bold uppercase tracking-[0.2em] text-white">
+                  Turning research and ideas into resilient businesses.
+                </p>
+              </motion.div>
             </motion.div>
 
           </div>
