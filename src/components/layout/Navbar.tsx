@@ -222,7 +222,7 @@ export default function Navbar() {
                 className="px-3.5 py-2 text-xs lg:text-sm font-medium text-white transition-colors duration-150 hover:bg-[#A81830] active:bg-[#7D1224] flex items-center justify-center gap-1.5 select-none"
               >
                 <span>Apply Now</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                
               </Link>
             </div>
 
