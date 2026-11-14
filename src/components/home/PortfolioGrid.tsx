@@ -86,7 +86,7 @@ export default function PortfolioGrid() {
   const hasMore = visibleCount < filteredStartups.length;
 
   return (
-    <section className="section-padding relative" id="startups">
+    <section className="pt-4 sm:pt-6 md:pt-8 pb-20 md:pb-28 relative" id="startups">
       <div className="container-custom">
         {/* Section Header */}
         <div className="mb-12">
@@ -97,11 +97,12 @@ export default function PortfolioGrid() {
             whileInView="visible"
             viewport={viewport}
           >
-            <div className="flex items-center gap-3 mb-2">
-              <span className="w-[3px] h-[18px] bg-accent rounded-full" />
-              <span className="text-sm md:text-base font-mono font-bold tracking-[0.25em] text-accent uppercase pt-px">
-                PORTFOLIO
-              </span>
+            <div className="flex items-center gap-2 mb-2">
+             <span className="h-[2px] w-8 bg-red-600" />
+
+                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-red-600">
+                 Portfolio
+                </span>
             </div>
 
             {/* Added Title & Description */}

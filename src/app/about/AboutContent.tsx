@@ -74,8 +74,11 @@ export default function AboutContent() {
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-[3px] h-[18px] bg-accent rounded-full" />
-              <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">ABOUT</span>
+              <span className="h-[2px] w-8 bg-red-600" />
+
+                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-red-600">
+             ABOUT US
+                </span>
             </div>
             <h1
               className="font-[family-name:var(--font-display)] font-bold text-white leading-[1.1] mb-4"

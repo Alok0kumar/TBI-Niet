@@ -190,10 +190,11 @@ export default function MentorsPage() {
         <div className="relative container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <div className="flex items-center gap-3 mb-3">
-              <span className="w-[3px] h-[18px] bg-accent rounded-full" />
-              <span className="text-sm md:text-base font-mono font-bold tracking-[0.25em] text-accent uppercase pt-px">
-                MENTORS & EXPERTS
-              </span>
+              <span className="h-[2px] w-8 bg-red-600" />
+
+                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-red-600">
+                 Mentors and Experts
+                </span>
             </div>
             <h1 className="font-[family-name:var(--font-display)] font-bold text-gray-900 leading-[1.15] mb-4" style={{ fontSize: "clamp(32px, 4.5vw, 56px)" }}>
               Learn from <span className="text-accent">the industry best.</span>
