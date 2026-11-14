@@ -24,13 +24,11 @@ export default function EventsHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <span className="w-[3px] h-[16px] bg-[#C41E3A] rounded-full" />
-              <span
-                className="text-xs font-medium tracking-[0.2em] text-[#C41E3A] uppercase"
-                style={{ fontFamily: "var(--font-mono)" }}
-              >
-                News &amp; Events
-              </span>
+              <span className="h-[2px] w-8 bg-red-600" />
+
+                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-red-600">
+                  See what's going on
+                </span>
             </motion.div>
 
             {/* Heading */}
