@@ -66,7 +66,6 @@ export default function AboutContent() {
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-primary grid-pattern" />
-        <div className="aurora-blob aurora-blob--cyan absolute top-0 right-0 opacity-20 animate-float" />
 
         <div className="relative container-custom">
           <motion.div

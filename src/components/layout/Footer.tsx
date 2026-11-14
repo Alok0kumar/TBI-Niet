@@ -95,9 +95,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-white text-neutral-800 font-sans border-t border-gray-100 overflow-hidden">
-      {/* Soft warm ambient glow at top right */}
-      <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-gradient-to-bl from-red-100/40 via-red-50/15 to-transparent rounded-bl-full pointer-events-none -z-0" />
+    <footer className="relative bg-[#EDEBEB] text-neutral-800 font-sans border-t border-neutral-300/50 overflow-hidden">
 
       {/* ── Main Content Container ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-14 md:pt-16 pb-4 sm:pb-5">
@@ -200,7 +198,7 @@ export default function Footer() {
         </div>
 
         {/* ── Middle Row: Contact Info + Follow Us + Stay Updated (Same Horizontal Level) ── */}
-        <div className="border-t border-gray-100 pt-8 pb-2 sm:pb-3 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-8 items-start">
+        <div className="border-t border-neutral-300/60 pt-8 pb-2 sm:pb-3 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-8 items-start">
 
           {/* 1. Contact Information */}
           <div className="md:col-span-5 lg:col-span-4 space-y-3.5">
@@ -249,7 +247,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-10 h-10 rounded-full bg-[#fdf8f8] hover:bg-[#C41E3A] text-neutral-700 hover:text-white border border-gray-200/80 hover:border-[#C41E3A] flex items-center justify-center transition-all duration-200 shadow-sm hover:scale-105"
+                  className="w-10 h-10 rounded-full bg-white hover:bg-[#C41E3A] text-neutral-700 hover:text-white border border-neutral-300/80 hover:border-[#C41E3A] flex items-center justify-center transition-all duration-200 shadow-sm hover:scale-105"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -258,7 +256,7 @@ export default function Footer() {
           </div>
 
           {/* 3. Stay Updated (with vertical border divider on desktop) */}
-          <div className="md:col-span-4 lg:col-span-5 md:border-l md:border-gray-200/90 md:pl-8 lg:pl-10">
+          <div className="md:col-span-4 lg:col-span-5 md:border-l md:border-neutral-300/70 md:pl-8 lg:pl-10">
             <h3 className="text-[11px] font-bold tracking-[0.18em] text-neutral-900 uppercase">
               STAY UPDATED
             </h3>
@@ -307,18 +305,18 @@ export default function Footer() {
           />
 
           {/* Light white overlay across the entire background image */}
-          <div className="absolute inset-0 bg-white/15 pointer-events-none" />
+          <div className="absolute inset-0 bg-white/10 pointer-events-none" />
 
-          {/* Smooth fade from top white section into the image */}
-          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white via-white/50 to-transparent pointer-events-none" />
+          {/* Smooth fade from top section into the image */}
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#EDEBEB] via-[#EDEBEB]/50 to-transparent pointer-events-none" />
 
           {/* Soft fade at the bottom connecting to the copyright bar */}
-          <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white/40 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#EDEBEB]/40 to-transparent pointer-events-none" />
         </div>
       </div>
 
       {/* ── Bottom Copyright Bar ── */}
-      <div className="relative z-10 bg-white border-t border-gray-100">
+      <div className="relative z-10 bg-[#EDEBEB] border-t border-neutral-300/60">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
 
           {/* Copyright notice */}

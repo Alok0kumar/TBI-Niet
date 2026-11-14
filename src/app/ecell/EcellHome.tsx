@@ -84,8 +84,6 @@ export default function EcellHome() {
       {/* Hero */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-primary grid-pattern" />
-        <div className="aurora-blob aurora-blob--cyan absolute top-[-200px] right-[-100px] animate-float opacity-25" />
-        <div className="aurora-blob aurora-blob--orange absolute bottom-[-100px] left-[-100px] animate-float-delay opacity-20" />
 
         <div className="relative container-custom text-center pt-32 pb-20">
           <motion.div
@@ -317,7 +315,6 @@ export default function EcellHome() {
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[#030303]" />
         <div className="absolute inset-0 grid-pattern opacity-20" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
         <motion.div
           className="relative container-custom text-center"

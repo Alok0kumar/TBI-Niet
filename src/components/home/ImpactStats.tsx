@@ -20,8 +20,6 @@ export default function ImpactStats() {
       <div className="absolute inset-0 grid-pattern" />
 
       {/* Top and bottom gradient borders */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
       <motion.div
         className="relative container-custom"

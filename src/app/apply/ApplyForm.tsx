@@ -212,8 +212,6 @@ export default function ApplyForm() {
 
   return (
     <section className="min-h-screen pt-24 md:pt-28 pb-20 bg-[#fafaf8] relative">
-      {/* ── Soft warm ambient glow at top right ── */}
-      <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-gradient-to-bl from-red-100/40 via-red-50/15 to-transparent rounded-bl-full pointer-events-none -z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
