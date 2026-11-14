@@ -9,11 +9,11 @@ const categories = ["All", "Media Coverage", "Announcements", "Startup Stories"]
 
 const allNews = [
   { category: "Media Coverage", date: "Nov 2024", title: "NIET TBI Expands to Deep-Tech", excerpt: "The incubator announces new partnerships for AI, IoT, and blockchain ventures.", gradient: "from-accent to-accent-warm" },
-  { category: "Announcements", date: "Oct 2024", title: "₹50 Lakh Seed Fund Round Opens", excerpt: "Applications open for annual seed funding. Student ventures can apply for up to ₹5L.", gradient: "from-accent-warm to-rose-500" },
+  { category: "Announcements", date: "Oct 2024", title: "â‚¹50 Lakh Seed Fund Round Opens", excerpt: "Applications open for annual seed funding. Student ventures can apply for up to â‚¹5L.", gradient: "from-accent-warm to-rose-500" },
   { category: "Startup Stories", date: "Sep 2024", title: "Speedo Express Hits 1000+ Deliveries/Day", excerpt: "NIET TBI-incubated logistics platform reaches major milestone.", gradient: "from-emerald-500 to-teal-500" },
   { category: "Media Coverage", date: "Aug 2024", title: "TBI Featured in Economic Times", excerpt: "Greater Noida's innovation hub gets national media spotlight.", gradient: "from-purple-500 to-pink-500" },
   { category: "Announcements", date: "Jul 2024", title: "New Mentor Onboarding: 20+ Experts", excerpt: "Industry veterans from Google, Microsoft, and Goldman Sachs join the mentor network.", gradient: "from-amber-500 to-orange-500" },
-  { category: "Startup Stories", date: "Jun 2024", title: "Printables Crosses ₹10L Monthly Revenue", excerpt: "D2C stationery brand scales with E-Cell's marketing support.", gradient: "from-pink-500 to-rose-500" },
+  { category: "Startup Stories", date: "Jun 2024", title: "Printables Crosses â‚¹10L Monthly Revenue", excerpt: "D2C stationery brand scales with E-Cell's marketing support.", gradient: "from-pink-500 to-rose-500" },
 ];
 
 export default function NewsPage() {
@@ -27,7 +27,7 @@ export default function NewsPage() {
         <div className="relative container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="flex items-center gap-3 mb-6 justify-start">
-              <span className="w-[3px] h-[18px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
+              <span className="w-[3px] h-[18px] bg-accent rounded-full" />
               <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">
                 NEWS
               </span>
@@ -74,3 +74,4 @@ export default function NewsPage() {
     </>
   );
 }
+

@@ -27,7 +27,7 @@ export default function TrustStrip() {
   return (
     <section
       className="w-full bg-[#F3F1ED] border-b border-gray-200/60"
-      style={{ fontFamily: "'Outfit', sans-serif" }}
+      
     >
       <div className="max-w-7xl mx-auto px-6 py-4 md:py-0 md:h-[72px] flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-y-3">
         {trustItems.map((item, index) => {
@@ -57,3 +57,4 @@ export default function TrustStrip() {
     </section>
   );
 }
+

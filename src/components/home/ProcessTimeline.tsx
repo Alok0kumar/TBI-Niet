@@ -63,7 +63,7 @@ export default function ProcessTimeline() {
           transition={{ duration: 0.6 }}
         >
           <div className="flex items-center gap-3 mb-6 justify-center">
-            <span className="w-[3px] h-[18px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
+            <span className="w-[3px] h-[18px] bg-accent rounded-full" />
             <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">
               HOW IT WORKS
             </span>
@@ -142,3 +142,4 @@ export default function ProcessTimeline() {
     </section>
   );
 }
+

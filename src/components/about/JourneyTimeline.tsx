@@ -109,10 +109,10 @@ export const MILESTONES_DATA: MilestoneItem[] = [
   },
   {
     id: "2026-27",
-    year: "2026–27",
+    year: "2026-27",
     category: "Next Chapter",
     title: "Cohort Acceleration",
-    description: "Cohort-1 program — a dedicated 12-week program to help promising ideas become scalable startups.",
+    description: "Cohort-1 program-26, a dedicated 12-week program to help promising ideas become scalable startups.",
     expandedDesc:
       "Pioneering the next frontier in deep-tech, artificial intelligence, robotics, and global venture scaling, NIET TBI is launching intensive structured cohort programs providing dedicated milestone grants, international market entry, and venture capital syndicates.",
     keyAchievements: [
@@ -198,8 +198,8 @@ export default function JourneyTimeline() {
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
           <div className="flex items-center justify-center gap-2.5 mb-2">
-            <span className="w-[3px] h-[16px] bg-[#D7193F] shadow-[0_0_8px_rgba(215,25,63,0.5)] rounded-full" />
-            <p className="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#D7193F] uppercase font-mono pt-px">
+            <span className="w-[3px] h-[16px] bg-[#C41E3A] rounded-full" />
+            <p className="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#C41E3A] uppercase font-mono pt-px">
               Our Journey
             </p>
           </div>
@@ -243,7 +243,7 @@ export default function JourneyTimeline() {
                     markerHeight="7"
                     orient="auto"
                   >
-                    <path d="M 1 2 L 11 6 L 1 10 L 3 6 z" fill="#D7193F" />
+                    <path d="M 1 2 L 11 6 L 1 10 L 3 6 z" fill="#C41E3A" />
                   </marker>
                   <marker
                     id="traveling-arrow-head-only"
@@ -254,7 +254,7 @@ export default function JourneyTimeline() {
                     markerHeight="9"
                     orient="auto"
                   >
-                    <path d="M 1 2 L 12 7 L 1 12 L 3 7 z" fill="#D7193F" />
+                    <path d="M 1 2 L 12 7 L 1 12 L 3 7 z" fill="#C41E3A" />
                   </marker>
                 </defs>
 
@@ -265,7 +265,7 @@ export default function JourneyTimeline() {
                   viewport={{ once: true }}
                   transition={{ duration: 1.2, ease: "easeInOut" }}
                   d="M 25 28 C 115 12, 175 56, 250 56 C 330 56, 345 28, 416 28 C 495 28, 510 56, 583 56 C 665 56, 680 28, 750 28 C 785 28, 805 56, 838 56"
-                  stroke="#D7193F"
+                  stroke="#C41E3A"
                   strokeWidth="2.5"
                   strokeDasharray="6 4"
                   markerEnd="url(#wave-arrow-point)"
@@ -303,7 +303,7 @@ export default function JourneyTimeline() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-5 items-start relative z-10">
               {/* Mobile-only vertical red line connecting all symbols (sm:hidden, laptop me nahi) */}
               <div 
-                className="block sm:hidden absolute left-[27px] top-6 bottom-16 w-0.5 border-l-2 border-dashed border-[#D7193F] pointer-events-none z-0"
+                className="block sm:hidden absolute left-[27px] top-6 bottom-16 w-0.5 border-l-2 border-dashed border-[#C41E3A] pointer-events-none z-0"
                 aria-hidden="true" 
               />
 
@@ -334,9 +334,9 @@ export default function JourneyTimeline() {
                         }}
                         aria-label={`Select milestone ${milestone.year} - ${milestone.title}`}
                         aria-pressed={isSelected}
-                        className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D7193F] ${isSelected
-                          ? "bg-[#D7193F] text-white shadow-xl shadow-[#D7193F]/35 scale-110 ring-4 ring-[#D7193F]/30"
-                          : "bg-[#D7193F] text-white hover:scale-105 hover:shadow-lg hover:shadow-[#D7193F]/20 shadow-md"
+                        className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C41E3A] ${isSelected
+                          ? "bg-[#C41E3A] text-white shadow-xl shadow-[#C41E3A]/35 scale-110 ring-4 ring-[#C41E3A]/30"
+                          : "bg-[#C41E3A] text-white hover:scale-105 hover:shadow-lg hover:shadow-[#C41E3A]/20 shadow-md"
                           }`}
                       >
                         <IconComponent className="w-6 h-6 transition-transform duration-200 group-hover:scale-110" />
@@ -346,7 +346,7 @@ export default function JourneyTimeline() {
                     {/* Year (Bold Navy) */}
                     <div className="mb-0.5">
                       <span
-                        className={`text-2xl font-black tracking-tight transition-colors ${isSelected ? "text-[#D7193F]" : "text-[#101828] group-hover:text-[#D7193F]"
+                        className={`text-2xl font-black tracking-tight transition-colors ${isSelected ? "text-[#C41E3A]" : "text-[#101828] group-hover:text-[#C41E3A]"
                           }`}
                       >
                         {milestone.year}
@@ -355,7 +355,7 @@ export default function JourneyTimeline() {
 
                     {/* Category Title (Theme Red and Bigger) */}
                     <div className="mb-3">
-                      <span className="text-sm sm:text-base font-bold tracking-wide text-[#D7193F] block leading-snug">
+                      <span className="text-sm sm:text-base font-bold tracking-wide text-[#C41E3A] block leading-snug">
                         {milestone.category}
                       </span>
                     </div>
@@ -363,8 +363,8 @@ export default function JourneyTimeline() {
                     {/* Pure White Background Placeholder (In place of photo, per specification) */}
                     <div
                       className={`w-full aspect-[4/3] rounded-xl border bg-[#FFFFFF] p-3 flex flex-col items-center justify-center text-center mb-3.5 transition-all duration-200 ${isSelected
-                        ? "border-[#D7193F] shadow-sm"
-                        : "border-slate-200 group-hover:border-[#D7193F]/40"
+                        ? "border-[#C41E3A] shadow-sm"
+                        : "border-slate-200 group-hover:border-[#C41E3A]/40"
                         }`}
                     >
                       <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-300 mb-1.5 bg-white">
@@ -382,12 +382,12 @@ export default function JourneyTimeline() {
 
                     {/* Indicator Link */}
                     <div
-                      className={`inline-flex items-center gap-1 text-[11px] font-semibold transition-all ${isSelected ? "text-[#D7193F]" : "text-slate-400 group-hover:text-[#D7193F]"
+                      className={`inline-flex items-center gap-1 text-[11px] font-semibold transition-all ${isSelected ? "text-[#C41E3A]" : "text-slate-400 group-hover:text-[#C41E3A]"
                         }`}
                     >
                       <span>{isSelected ? "Active Story" : "Explore"}</span>
                       <ChevronRight
-                        className={`w-3 h-3 transition-transform duration-150 ${isSelected ? "translate-x-0.5 text-[#D7193F]" : "group-hover:translate-x-0.5"
+                        className={`w-3 h-3 transition-transform duration-150 ${isSelected ? "translate-x-0.5 text-[#C41E3A]" : "group-hover:translate-x-0.5"
                           }`}
                       />
                     </div>
@@ -412,10 +412,10 @@ export default function JourneyTimeline() {
               {/* Left Story Details */}
               <div className="lg:col-span-7">
                 <div className="flex flex-wrap items-center gap-3 mb-3">
-                  <span className="text-sm font-bold uppercase tracking-wider text-[#D7193F] font-mono">
+                  <span className="text-sm font-bold uppercase tracking-wider text-[#C41E3A] font-mono">
                     {activeMilestone.category}
                   </span>
-                  <span className="text-slate-300">•</span>
+                 
                   <span className="text-sm font-medium text-[#344054]">
                     {activeMilestone.year}
                   </span>
@@ -436,7 +436,7 @@ export default function JourneyTimeline() {
                   <ul className="space-y-2.5">
                     {activeMilestone.keyAchievements.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-[#344054]">
-                        <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#D7193F] flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#C41E3A] flex-shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -469,3 +469,5 @@ export default function JourneyTimeline() {
     </section>
   );
 }
+
+

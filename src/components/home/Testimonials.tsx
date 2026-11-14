@@ -77,7 +77,7 @@ export default function Testimonials() {
 
       <div className="relative container-custom">
         <SectionHeading
-          eyebrow="// FOUNDER STORIES"
+          eyebrow="FOUNDER STORIES"
           title="Straight from the founders."
         />
 
@@ -168,3 +168,4 @@ export default function Testimonials() {
     </section>
   );
 }
+

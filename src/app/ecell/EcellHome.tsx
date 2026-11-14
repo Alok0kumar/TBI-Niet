@@ -162,7 +162,7 @@ export default function EcellHome() {
         <div className="absolute inset-0 dot-pattern opacity-15" />
         <div className="relative container-custom">
           <SectionHeading
-            eyebrow="// WHAT WE DO"
+            eyebrow="WHAT WE DO"
             title="Three pillars of student entrepreneurship."
           />
 
@@ -200,7 +200,7 @@ export default function EcellHome() {
       <section className="section-padding relative">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="// FLAGSHIP EVENTS"
+            eyebrow="FLAGSHIP EVENTS"
             title="Where innovation meets competition."
           />
 
@@ -252,7 +252,7 @@ export default function EcellHome() {
       <section className="section-padding bg-surface relative">
         <div className="relative container-custom">
           <SectionHeading
-            eyebrow="// SPEAKER WALL"
+            eyebrow="SPEAKER WALL"
             title="Learning from the best."
           />
 
@@ -280,7 +280,7 @@ export default function EcellHome() {
       <section className="section-padding relative">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="// THE TEAM"
+            eyebrow="THE TEAM"
             title="Student leaders driving E-Cell."
           />
 
@@ -350,3 +350,4 @@ export default function EcellHome() {
     </>
   );
 }
+

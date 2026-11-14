@@ -228,7 +228,7 @@ export default function ApplyForm() {
             {/* Left Header Card */}
             <div className="bg-white rounded-2xl border border-gray-200/90 p-5 sm:p-6 shadow-xs">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-[#C41E3A]" />
+                <span className="w-[3px] h-[18px] bg-[#C41E3A] rounded-full" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#C41E3A]">
                   Cohort 2026 Admissions
                 </span>

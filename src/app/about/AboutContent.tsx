@@ -74,7 +74,10 @@ export default function AboutContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="eyebrow mb-4 inline-block">// ABOUT</span>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-[3px] h-[18px] bg-accent rounded-full" />
+              <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">ABOUT</span>
+            </div>
             <h1
               className="font-[family-name:var(--font-display)] font-bold text-white leading-[1.1] mb-4"
               style={{ fontSize: "clamp(40px, 5vw, 72px)" }}
@@ -145,7 +148,7 @@ export default function AboutContent() {
         <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="relative container-custom">
           <SectionHeading
-            eyebrow="// WHY NIET TBI"
+            eyebrow="WHY NIET TBI"
             title="What sets us apart."
           />
 
@@ -179,7 +182,7 @@ export default function AboutContent() {
       <section className="section-padding relative">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="// LEADERSHIP"
+            eyebrow="LEADERSHIP"
             title="Board Members"
             subtitle="The team guiding NIET TBI's strategy and growth."
           />
@@ -255,3 +258,4 @@ export default function AboutContent() {
     </>
   );
 }
+

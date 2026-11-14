@@ -67,7 +67,7 @@ export default function ServicesGrid() {
     <section className="relative section-padding overflow-hidden" id="services">
       <div className="container-custom">
         <SectionHeading
-          eyebrow="// WHAT WE OFFER"
+          eyebrow="WHAT WE OFFER"
           title="Everything a startup needs, under one roof."
           subtitle="Comprehensive support designed to take you from idea to market — and beyond."
         />
@@ -138,3 +138,4 @@ export default function ServicesGrid() {
     </section>
   );
 }
+

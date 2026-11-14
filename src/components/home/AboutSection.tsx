@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { slideInLeft, slideInRight, viewport } from "@/lib/animations";
 import { Building2, Target, Globe, Zap } from "lucide-react";
@@ -27,22 +28,22 @@ export default function AboutSection() {
                 <div className="grid grid-cols-2 gap-5">
                   {/* Startup India */}
                   <div className="bg-white rounded-none p-6 flex items-center justify-center shadow-sm border border-gray-100 min-h-[110px] hover:shadow-md transition-all duration-300">
-                    <img src="/startup india.webp" alt="Startup India" className="h-12 object-contain" />
+                    <Image src="/startup-india.webp" alt="Startup India" width={160} height={48} className="h-12 w-auto object-contain" />
                   </div>
 
                   {/* MSME */}
                   <div className="bg-white rounded-none p-6 flex items-center justify-center shadow-sm border border-gray-100 min-h-[110px] hover:shadow-md transition-all duration-300">
-                    <img src="/msme.webp" alt="MSME" className="h-14 object-contain" />
+                    <Image src="/msme.webp" alt="MSME" width={160} height={56} className="h-14 w-auto object-contain" />
                   </div>
 
                   {/* Wadhwani Foundation */}
                   <div className="bg-white rounded-none p-6 flex items-center justify-center shadow-sm border border-gray-100 min-h-[110px] hover:shadow-md transition-all duration-300">
-                    <img src="/wadhwni.webp" alt="Wadhwani Foundation" className="h-14 object-contain" />
+                    <Image src="/wadhwni.webp" alt="Wadhwani Foundation" width={160} height={56} className="h-14 w-auto object-contain" />
                   </div>
 
                   {/* Seed Spark */}
                   <div className="bg-white rounded-none p-6 flex items-center justify-center shadow-sm border border-gray-100 min-h-[110px] hover:shadow-md transition-all duration-300">
-                    <img src="/seedpark.webp" alt="Seed Spark" className="h-14 object-contain" />
+                    <Image src="/seedpark.webp" alt="Seed Spark" width={160} height={56} className="h-14 w-auto object-contain" />
                   </div>
                 </div>
               </div>
@@ -55,12 +56,12 @@ export default function AboutSection() {
                 <div className="grid grid-cols-2 gap-5">
                   {/* Microsoft */}
                   <div className="bg-white rounded-none p-6 flex items-center justify-center shadow-sm border border-gray-100 min-h-[110px] hover:shadow-md transition-all duration-300">
-                    <img src="/microsoft.webp" alt="Microsoft" className="h-12 object-contain" />
+                    <Image src="/microsoft.webp" alt="Microsoft" width={160} height={48} className="h-12 w-auto object-contain" />
                   </div>
 
                   {/* AWS */}
                   <div className="bg-white rounded-none p-6 flex items-center justify-center shadow-sm border border-gray-150 min-h-[110px] hover:shadow-md transition-all duration-300">
-                    <img src="/aws.webp" alt="AWS" className="h-12 object-contain" />
+                    <Image src="/aws.webp" alt="AWS" width={160} height={48} className="h-12 w-auto object-contain" />
                   </div>
                 </div>
               </div>
@@ -76,7 +77,7 @@ export default function AboutSection() {
             viewport={viewport}
           >
             <div className="flex items-center gap-3 mb-6 justify-start">
-              <span className="w-[3px] h-[20px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
+              <span className="w-[3px] h-[20px] bg-accent rounded-full" />
               <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">
                 ABOUT NIET TBI
               </span>
@@ -125,3 +126,5 @@ export default function AboutSection() {
     </section>
   );
 }
+
+

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ========================================
-   NIET TBI — Design System
+   NIET TBI â€” Design System
    ======================================== */
 
 @theme inline {
@@ -221,7 +221,7 @@ body {
 }
 
 .gradient-text-cyan {
-  background: linear-gradient(135deg, var(--color-accent) 0%, #0088cc 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #C41E3A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -361,13 +361,13 @@ body {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #E81010;
+  background-color: #C41E3A;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
 
 .dark .nav-link-underline::after {
-  background-color: #E81010;
+  background-color: #C41E3A;
 }
 
 .nav-link-underline:hover::after,
@@ -414,3 +414,33 @@ body {
 }
 
 
+
+
+
+/* ========================================
+   Typography Scale Utilities
+   ======================================== */
+
+.text-hero {
+  font-size: clamp(40px, 5vw, 72px);
+}
+
+.text-hero-lg {
+  font-size: clamp(44px, 6vw, 84px);
+}
+
+.text-hero-sm {
+  font-size: clamp(36px, 5vw, 64px);
+}
+
+.text-heading {
+  font-size: clamp(32px, 4vw, 56px);
+}
+
+.text-heading-sm {
+  font-size: clamp(32px, 4.5vw, 56px);
+}
+
+.text-subheading {
+  font-size: clamp(24px, 3.2vw, 40px);
+}

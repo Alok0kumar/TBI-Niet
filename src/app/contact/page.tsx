@@ -173,6 +173,7 @@ function ContactRow({
       </div>
       {copyable && (
         <button
+          type="button"
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -212,6 +213,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   return (
     <div className="border-b border-gray-100 last:border-0">
       <button
+        type="button"
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-4 py-3.5 text-left"
         aria-expanded={open}
@@ -627,3 +629,5 @@ export default function ContactPage() {
     </>
   );
 }
+
+

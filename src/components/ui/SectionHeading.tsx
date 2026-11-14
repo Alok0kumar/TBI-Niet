@@ -31,10 +31,10 @@ export default function SectionHeading({
       {eyebrow && (
         <div className={`flex items-center gap-3 mb-6 ${align === "center" ? "justify-center" : "justify-start"}`}>
           {/* Glowing Vertical Line */}
-          <span className="w-[3px] h-[18px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
+          <span className="w-[3px] h-[18px] bg-accent rounded-full" />
           {/* Text without the old '//' */}
           <span className="text-sm font-mono font-medium tracking-[0.2em] text-accent uppercase pt-px">
-            {eyebrow.replace(/\/\/\s*/g, "")}
+            {eyebrow}
           </span>
         </div>
       )}
@@ -54,3 +54,5 @@ export default function SectionHeading({
     </motion.div>
   );
 }
+
+

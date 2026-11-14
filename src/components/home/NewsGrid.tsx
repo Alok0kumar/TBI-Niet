@@ -38,7 +38,7 @@ export default function NewsGrid() {
     <section className="relative section-padding overflow-hidden" id="news-section">
       <div className="container-custom">
         <SectionHeading
-          eyebrow="// LATEST"
+          eyebrow="LATEST"
           title="From the ecosystem."
           subtitle="News, announcements, and stories from the NIET TBI community."
         />
@@ -116,3 +116,4 @@ export default function NewsGrid() {
     </section>
   );
 }
+

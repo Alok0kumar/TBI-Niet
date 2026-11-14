@@ -98,7 +98,7 @@ export default function PortfolioGrid() {
             viewport={viewport}
           >
             <div className="flex items-center gap-3 mb-2">
-              <span className="w-[3px] h-[18px] bg-accent shadow-[0_0_8px_var(--color-accent)] rounded-full" />
+              <span className="w-[3px] h-[18px] bg-accent rounded-full" />
               <span className="text-sm md:text-base font-mono font-bold tracking-[0.25em] text-accent uppercase pt-px">
                 PORTFOLIO
               </span>
@@ -149,7 +149,7 @@ export default function PortfolioGrid() {
                   onChange={(e) => handleSearchChange(e.target.value)}
                   placeholder="Search by name, sector..."
                   aria-label="Search startups"
-                  className="w-full bg-white border border-gray-200/90 rounded-full pl-9 pr-9 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D7193F]/25 focus:border-[#D7193F] shadow-sm transition-all"
+                  className="w-full bg-white border border-gray-200/90 rounded-full pl-9 pr-9 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C41E3A]/25 focus:border-[#C41E3A] shadow-sm transition-all"
                 />
                 {searchQuery && (
                   <button
@@ -304,7 +304,7 @@ export default function PortfolioGrid() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center py-16 px-4 bg-gray-50/70 border border-dashed border-gray-200 rounded-3xl my-8 max-w-xl mx-auto"
           >
-            <div className="w-12 h-12 rounded-full bg-red-50 text-[#D7193F] flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 rounded-full bg-red-50 text-[#C41E3A] flex items-center justify-center mx-auto mb-4">
               <Search className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-gray-900 mb-1">
@@ -355,3 +355,5 @@ export default function PortfolioGrid() {
     </section>
   );
 }
+
+

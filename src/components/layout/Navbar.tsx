@@ -105,7 +105,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 w-full z-[100] h-[82px] flex items-center transition-all duration-300 bg-[#FAF9F6]/95 backdrop-blur-xl border-b border-gray-200/50 shadow-sm`}
         id="main-nav"
-        style={{ fontFamily: "'Outfit', sans-serif" }}
+        
       >
         <div className="max-w-full px-4 md:px-8 w-full flex justify-between items-center">
 
@@ -124,7 +124,7 @@ export default function Navbar() {
           {/* Center: Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
             <Link
-              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"
+              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/" ? "text-[#C41E3A] active" : "text-neutral-600 hover:text-[#C41E3A]"
                 }`}
               href="/"
             >
@@ -135,7 +135,7 @@ export default function Navbar() {
               onMouseEnter={() => setIsDiscoverOpen(true)}
               onMouseLeave={() => setIsDiscoverOpen(false)}
             >
-              <button className="flex items-center gap-1 text-sm font-medium text-neutral-600 hover:text-[#E81010] transition-colors cursor-pointer">
+              <button className="flex items-center gap-1 text-sm font-medium text-neutral-600 hover:text-[#C41E3A] transition-colors cursor-pointer">
                 Discover
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isDiscoverOpen ? "rotate-180" : ""}`} />
               </button>
@@ -156,10 +156,10 @@ export default function Navbar() {
                         return (
                           <Link
                             key={item.label}
-                            className="flex items-center gap-3 px-4 py-3 rounded-none hover:bg-gray-100 text-neutral-700 hover:text-[#E81010] transition-all"
+                            className="flex items-center gap-3 px-4 py-3 rounded-none hover:bg-gray-100 text-neutral-700 hover:text-[#C41E3A] transition-all"
                             href={item.href}
                           >
-                            <Icon className="w-5 h-5 text-[#E81010]/80" />
+                            <Icon className="w-5 h-5 text-[#C41E3A]/80" />
                             <span className="text-xs font-medium">{item.label}</span>
                           </Link>
                         );
@@ -176,7 +176,7 @@ export default function Navbar() {
               onMouseEnter={() => setIsProgramsOpen(true)}
               onMouseLeave={() => setIsProgramsOpen(false)}
             >
-              <button className="flex items-center gap-1 text-sm font-medium text-neutral-600 hover:text-[#E81010] transition-colors cursor-pointer">
+              <button className="flex items-center gap-1 text-sm font-medium text-neutral-600 hover:text-[#C41E3A] transition-colors cursor-pointer">
                 Entreprenuership &  Innovation
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isProgramsOpen ? "rotate-180" : ""}`} />
               </button>
@@ -197,10 +197,10 @@ export default function Navbar() {
                         return (
                           <Link
                             key={item.label}
-                            className="flex items-center gap-3 px-4 py-3 rounded-none hover:bg-gray-100 text-neutral-700 hover:text-[#E81010] transition-all"
+                            className="flex items-center gap-3 px-4 py-3 rounded-none hover:bg-gray-100 text-neutral-700 hover:text-[#C41E3A] transition-all"
                             href={item.href}
                           >
-                            <Icon className="w-5 h-5 text-[#E81010]/80" />
+                            <Icon className="w-5 h-5 text-[#C41E3A]/80" />
                             <span className="text-xs font-medium">{item.label}</span>
                           </Link>
                         );
@@ -212,35 +212,35 @@ export default function Navbar() {
             </div>
 
             <Link
-              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/portfolio" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"
+              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/portfolio" ? "text-[#C41E3A] active" : "text-neutral-600 hover:text-[#C41E3A]"
                 }`}
               href="/portfolio"
             >
               Portfolio
             </Link>
             <Link
-              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/mentors" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"
+              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/mentors" ? "text-[#C41E3A] active" : "text-neutral-600 hover:text-[#C41E3A]"
                 }`}
               href="/mentors"
             >
               Mentors
             </Link>
             <Link
-              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/programs-events" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"
+              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/programs-events" ? "text-[#C41E3A] active" : "text-neutral-600 hover:text-[#C41E3A]"
                 }`}
               href="/programs-events"
             >
               News & Events
             </Link>
             <Link
-              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/contact" ? "text-[#E81010] active" : "text-neutral-600 hover:text-[#E81010]"
+              className={`text-sm font-medium transition-colors nav-link-underline py-2 ${pathname === "/contact" ? "text-[#C41E3A] active" : "text-neutral-600 hover:text-[#C41E3A]"
                 }`}
               href="/contact"
             >
               Contact
             </Link>
             <a
-              className="text-sm font-medium transition-colors nav-link-underline py-2 text-neutral-600 hover:text-[#E81010]"
+              className="text-sm font-medium transition-colors nav-link-underline py-2 text-neutral-600 hover:text-[#C41E3A]"
               href="https://reservation-protal-final.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
@@ -291,7 +291,7 @@ export default function Navbar() {
               <div className="flex flex-col gap-4 text-left">
                 <Link
                   href="/"
-                  className={`text-xl font-semibold py-2 ${pathname === "/" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  className={`text-xl font-semibold py-2 ${pathname === "/" ? "text-[#C41E3A] dark:text-red-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -299,7 +299,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/about"
-                  className={`text-xl font-semibold py-2 ${pathname === "/about" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  className={`text-xl font-semibold py-2 ${pathname === "/about" ? "text-[#C41E3A] dark:text-red-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -331,10 +331,10 @@ export default function Navbar() {
                             <Link
                               key={item.label}
                               href={item.href}
-                              className="flex items-center gap-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#155DFB] dark:hover:text-blue-500"
+                              className="flex items-center gap-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#C41E3A] dark:hover:text-red-500"
                               onClick={() => setIsMobileOpen(false)}
                             >
-                              <Icon className="w-4 h-4 text-[#155DFB]/80 dark:text-blue-500/80" />
+                              <Icon className="w-4 h-4 text-[#C41E3A]/80 dark:text-red-500/80" />
                               <span>{item.label}</span>
                             </Link>
                           );
@@ -346,7 +346,7 @@ export default function Navbar() {
 
                 <Link
                   href="/portfolio"
-                  className={`text-xl font-semibold py-2 ${pathname === "/portfolio" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  className={`text-xl font-semibold py-2 ${pathname === "/portfolio" ? "text-[#C41E3A] dark:text-red-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -354,7 +354,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/mentors"
-                  className={`text-xl font-semibold py-2 ${pathname === "/mentors" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  className={`text-xl font-semibold py-2 ${pathname === "/mentors" ? "text-[#C41E3A] dark:text-red-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -362,7 +362,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/programs-events"
-                  className={`text-xl font-semibold py-2 ${pathname === "/programs-events" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  className={`text-xl font-semibold py-2 ${pathname === "/programs-events" ? "text-[#C41E3A] dark:text-red-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -370,7 +370,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/contact"
-                  className={`text-xl font-semibold py-2 ${pathname === "/contact" ? "text-[#155DFB] dark:text-blue-500" : "text-gray-800 dark:text-gray-200"
+                  className={`text-xl font-semibold py-2 ${pathname === "/contact" ? "text-[#C41E3A] dark:text-red-500" : "text-gray-800 dark:text-gray-200"
                     }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -390,7 +390,7 @@ export default function Navbar() {
               <div className="mt-auto pt-8">
                 <Link
                   href="/apply"
-                  className="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#155DFB] dark:bg-blue-600 text-white font-semibold rounded-full text-base"
+                  className="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#C41E3A] dark:bg-red-700 text-white font-semibold rounded-full text-base"
                   onClick={() => setIsMobileOpen(false)}
                 >
                   Apply Now
@@ -404,3 +404,6 @@ export default function Navbar() {
     </>
   );
 }
+
+
+

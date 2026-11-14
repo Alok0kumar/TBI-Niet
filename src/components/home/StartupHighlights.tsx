@@ -121,7 +121,7 @@ export default function StartupHighlights() {
                    className="w-[220px] h-[280px] object-cover object-top relative z-10"
                  />
                  {/* Red accent block on left bottom corner */}
-                 <div className="absolute -bottom-8 -left-4 w-12 h-20 bg-[#C91A25] rounded-bl-[20px] z-0" />
+                 <div className="absolute -bottom-8 -left-4 w-12 h-20 bg-[#C41E3A] rounded-bl-[20px] z-0" />
                </div>
                
                {/* Name and title with scroll entrance animation */}
@@ -132,7 +132,7 @@ export default function StartupHighlights() {
                  transition={{ duration: 0.8, ease: "easeOut" }}
                  className="text-left w-full mt-4"
                >
-                 <p className="text-[#C91A25] font-bold text-2xl leading-tight">Dr. Sanjay Kumar</p>
+                 <p className="text-[#C41E3A] font-bold text-2xl leading-tight">Dr. Sanjay Kumar</p>
                  <p className="text-gray-800 text-sm font-medium mt-1">Head-TBI</p>
                </motion.div>
              </motion.div>
@@ -143,3 +143,4 @@ export default function StartupHighlights() {
     </>
   );
 }
+
